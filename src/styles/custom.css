@@ -28,3 +28,13 @@
   --sl-color-gray-7: #f9f5f5;
   --sl-color-black: #ffffff;
 }
+
+/* Link style in cards */
+.card a {
+  color: var(--sl-color-white);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--sl-color-text-accent);
+  }
+}

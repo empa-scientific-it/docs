@@ -19,7 +19,19 @@ export default defineConfig({
         { label: "Home", link: "/" },
         { label: "About", link: "/about" },
         { label: "Support", link: "/support" },
-        { label: "Compute", autogenerate: { directory: "compute" } },
+        {
+          label: "Compute",
+          items: [
+            { label: "CSCS", autogenerate: { directory: "compute/CSCS" } },
+            {
+              label: "Recipes",
+              items: [
+                "compute/recipes/build_docker_image",
+                "compute/recipes/build_uenv_locally",
+              ],
+            },
+          ],
+        },
         { label: "Data Science", link: "/data_science" },
         {
           label: "Research Data Management",

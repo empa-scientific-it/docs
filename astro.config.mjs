@@ -19,6 +19,7 @@ export default defineConfig({
         { label: "About", link: "/about" },
         { label: "Support", link: "/support" },
         { label: "Compute", autogenerate: { directory: "compute" } },
+        { label: "Data Science", link: "/data_science" },
         {
           label: "Software Engineering",
           items: [

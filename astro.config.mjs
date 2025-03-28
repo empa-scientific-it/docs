@@ -21,6 +21,10 @@ export default defineConfig({
         { label: "Compute", autogenerate: { directory: "compute" } },
         { label: "Data Science", link: "/data_science" },
         {
+          label: "Research Data Management",
+          autogenerate: { directory: "rdm" },
+        },
+        {
           label: "Software Engineering",
           items: [
             {

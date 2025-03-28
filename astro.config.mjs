@@ -2,10 +2,13 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://empa-scientific-it.github.io",
-  base: "/docs",
+  /*
+    Setting "base" is needed if you want to deploy your site to a subdirectory
+    CAUTION: If set, it requires to prepend all the relative links with the base path.
+  */
+  // base: "/docs",
   integrations: [
     starlight({
       title: "Empa Scientific IT",

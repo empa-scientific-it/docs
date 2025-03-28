@@ -14,6 +14,7 @@ export default defineConfig({
         github: "https://github.com/empa-scientific-it",
         gitlab: "https://gitlab.empa.ch/empa-scientific-it/docs",
       },
+      pagination: false,
       sidebar: [
         { label: "Home", link: "/" },
         { label: "About", link: "/about" },

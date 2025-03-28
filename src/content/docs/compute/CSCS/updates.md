@@ -1,5 +1,7 @@
 ---
 title: Updates
+sidebar:
+  order: 1
 ---
 
 ## 16 Jan 2025

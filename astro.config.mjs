@@ -22,14 +22,11 @@ export default defineConfig({
         {
           label: "Compute",
           items: [
-            { label: "CSCS", autogenerate: { directory: "compute/CSCS" } },
             {
-              label: "Recipes",
-              items: [
-                "compute/recipes/build_docker_image",
-                "compute/recipes/build_uenv_locally",
-              ],
+              label: "Access compute resources",
+              link: "/compute",
             },
+            { label: "CSCS", autogenerate: { directory: "compute/CSCS" } },
           ],
         },
         { label: "Data Science", link: "/data_science" },

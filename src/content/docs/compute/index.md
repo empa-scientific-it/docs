@@ -1,5 +1,5 @@
 ---
-title: Access Compute Resources
+title: Access compute resources
 ---
 
 We assist Empa researchers in finding the optimal solution for their research projects compute needs.

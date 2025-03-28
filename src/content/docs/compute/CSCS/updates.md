@@ -2,8 +2,6 @@
 title: Updates
 ---
 
-# Updates
-
 ## 16 Jan 2025
 
 From [CSCS News feed](https://user.cscs.ch/news/):

@@ -8,7 +8,7 @@ The main goal is to provide Empa researchers with technical support regarding HP
 
 ## New CSCS users
 
-To start your HPC journey, you can contact us as described on the [contact page](/support).
+To start your HPC journey, you can contact us as described on the [contact page](/docs/support).
 We will provide you with necessary instructions on how to get an account at CSCS and run your first computations.
 
 To kickstart your project, we will offer you some **free** compute time to familiarize yourself with the system.
@@ -45,7 +45,7 @@ For example:
 - Efficient running of single-core calculations/post-processing analyses
 - Interactive compute with Jupyter Lab
 
-Check out the [guidelines](../support/guidelines.md) on how to send an effective support request by e-mail.
+Check out the [guidelines](/docs/support/guidelines) on how to send an effective support request by e-mail.
 
 ## About Empa collaboration with CSCS
 

@@ -11,9 +11,9 @@ The table below gives you an overview where to find support for our different ar
 
 | Topic                                      | Find support at                                                                                     |
 | ------------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| OpenBIS                                    | [openBIS support page](../research_data_management/openBIS/Support)                                 |
-| Data Management Plan (DMP)                 | [DMP support](../research_data_management/Data_Management_Plan/index.md/#dmp-templates-and-support) |
-| Open Access (OA)                           | [OA support](../research_data_management/Open_Access/index.md/#support)                             |
+| OpenBIS                                    | [openBIS support page](/docs/rdm/openBIS/Support)                                 |
+| Data Management Plan (DMP)                 | [DMP support](/docs/rdm/Data_Management_Plan/index.md/#dmp-templates-and-support) |
+| Open Access (OA)                           | [OA support](/docs/rdm/Open_Access/index.md/#support)                             |
 | Compute                                    | [`compute@empa.ch`](mailto:compute@empa.ch)                                                         |
 | Generic technical issue or support request | [`scientificit@empa.ch`](mailto:scientificit@empa.ch)                                               |
 
@@ -28,8 +28,8 @@ We offer the possibility to book a meeting with us to discuss issues related to 
 
 You can book a meeting via Microsoft Bookings on [this page](https://outlook.office365.com/book/ScientificITSupport@empa.ch/).
 
-Unless otherwise specified or requested, meetings with us are taking place in our offices (**VE 318/319**) or a conference/meeting room.
+Unless otherwise specified or requested, meetings with us are taking place in our offices (VE 318/319) or a conference/meeting room.
 
 ## Additional support material
 
-We gathered some [guidelines](/support/guidelines) that will help you in framing your support request.
+We gathered some [guidelines](/docs/support/guidelines) that will help you in framing your support request.

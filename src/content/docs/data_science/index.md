@@ -36,4 +36,4 @@ Categorizing data.
 
 ## How to Reach Out
 
-[Contact us](/support/) for a first discussion to see how we can help you with your Data Science projects.
+[Contact us](/docs/support/) for a first discussion to see how we can help you with your Data Science projects.

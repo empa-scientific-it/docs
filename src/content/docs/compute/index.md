@@ -11,4 +11,4 @@ Depending on your needs, we can help you with:
 - Installing and configuring software tools.
 
 If you are interested to learn more, please visit the corresponding sections.
-To get in touch with us, please refer to the [contact page](../support/index.md).
+To get in touch with us, please refer to the [contact page](/docs/support/).

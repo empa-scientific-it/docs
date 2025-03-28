@@ -28,9 +28,9 @@ We can support you in many aspects of modern software development practices, for
 
 For a brief introduction to software architecture, you can check the slides [here](https://gitlab.empa.ch/empa-scientific-it/software-architecture-training).
 
-[Contact us](/support/) for a first discussion shall you need assistance with any of these topics.
+[Contact us](/docs/support/) for a first discussion shall you need assistance with any of these topics.
 
-If want us to have a closer look at your project, you can book a slot in our [office hours](/support/#how-to-book-a-meeting) for dev support sessions.
+If want us to have a closer look at your project, you can book a slot in our [office hours](/docs/support/#how-to-book-a-meeting) for dev support sessions.
 
 ## Internal developments
 

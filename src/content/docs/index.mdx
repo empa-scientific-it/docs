@@ -1,36 +1,32 @@
 ---
-title: Welcome to Starlight
+title: Empa Scientific IT
 description: Get started building your docs site with Starlight.
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: Research IT services at Empa
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: About
+      link: /about/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+    - text: Support
+      link: /support/
+      icon: right-arrow
+      variant: secondary
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
-
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Compute" icon="laptop">
+	   We help you with the right compute infrastructure for your research IT needs.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Data Science" icon="seti:bicep">
+	   We promote the use of advanced data analytics and AI to get the most out of your data.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Research Data Management" icon="open-book">
+	   We provide good data management practices and provide support in data organization.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Software Engineering" icon="seti:python">
+	   We promote good software development practices, offer support in code optimization, management, and deployment.
 	</Card>
 </CardGrid>

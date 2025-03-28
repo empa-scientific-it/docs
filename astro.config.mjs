@@ -4,6 +4,8 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://empa-scientific-it.github.io",
+  base: "/docs",
   integrations: [
     starlight({
       title: "Empa Scientific IT",

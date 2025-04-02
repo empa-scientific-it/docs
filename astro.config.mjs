@@ -18,7 +18,13 @@ export default defineConfig({
       sidebar: [
         { label: "Home", link: "/" },
         { label: "About", link: "/about" },
-        { label: "Support", link: "/support" },
+        {
+          label: "Support",
+          items: [
+            { label: "How to get support", link: "/support" },
+            { label: "Guidelines", link: "/support/guidelines" },
+          ],
+        },
         {
           label: "Compute",
           items: [

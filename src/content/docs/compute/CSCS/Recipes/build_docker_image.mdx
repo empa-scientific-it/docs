@@ -21,7 +21,7 @@ machine nvcr.io login $oauthtoken password <your-API-key>
 Don't forget to replace `your-API-key` with the key you just created.
 </Aside>
 
-### Preparing the Dockerfile
+## Preparing the Dockerfile
 
 <Steps>
 
@@ -50,7 +50,7 @@ Don't forget to replace `your-API-key` with the key you just created.
 
 </Steps>
 
-### Building the image
+## Building the image
 Since it might take some time, we are going to build the image on a computing node.
 
 <Steps>
@@ -82,7 +82,7 @@ Since it might take some time, we are going to build the image on a computing no
 
 </Steps>
 
-### Running the container
+## Running the container
 One last step before we're able to run a container from the image we built. We need to create an Environment Definition File (EDF).
 Such file tells the CE where to look for the image to run, which folders to mount inside the container, and [many other options](https://confluence.cscs.ch/spaces/KB/pages/776306695/Container+Engine#ContainerEngine-FullEDFreference) we might need/want to customize.
 For example, we might want to set some environment variables that we need inside the container upon it starts.
@@ -119,7 +119,7 @@ For example, we might want to set some environment variables that we need inside
 
 </Steps>
 
-### Test the container
+## Test the container
 Once our allocation is granted, we'll be *inside* our running container.
 Since we created a PyTorch Docker image, we can test that all went fine with a Python script that tries to import the `torch` package and runs some hardware checks:
 
@@ -165,6 +165,6 @@ Device 2: NVIDIA GH200 120GB
 Device 3: NVIDIA GH200 120GB
 ```
 
-### Additional resources
+## Additional resources
 - [Building container images](https://confluence.cscs.ch/spaces/KB/pages/868834153/Building+container+images+on+Alps)
 - [The Container Engine](https://confluence.cscs.ch/spaces/KB/pages/776306695/Container+Engine)

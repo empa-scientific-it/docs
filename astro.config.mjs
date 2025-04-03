@@ -45,20 +45,7 @@ export default defineConfig({
         },
         {
           label: "Software Engineering",
-          items: [
-            {
-              label: "Development",
-              link: "software_engineering/development",
-            },
-            {
-              label: "Deployment",
-              link: "software_engineering/deployment",
-            },
-            {
-              label: "Training",
-              link: "software_engineering/training",
-            },
-          ],
+          autogenerate: { directory: "software_engineering" },
         },
       ],
     }),

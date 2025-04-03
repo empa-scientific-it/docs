@@ -2,19 +2,6 @@
 title: Software Development
 ---
 
-## What we do
-
-Our team is skilled in modern software development practices.
-We are competent in a variety of technologies, programming languages, and concepts.
-
-We have experience in many facets of software development, particularly:
-
-- Backend development
-- Front-end/web development
-- HPC
-- Deployment using Docker containers
-- Continuous integration and delivery (CI/CD)
-
 ## Best practices
 
 Our team can teach you how to write code that's not only efficient, but also easy to understand, following the best practices in software development.

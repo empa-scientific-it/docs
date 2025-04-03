@@ -15,19 +15,20 @@ hero:
       variant: primary
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid } from '@astrojs/starlight/components';
+import CustomCard from '@components/CustomCard.astro';
 
 <CardGrid stagger>
-	<Card title="<a href='/docs/compute/'>Compute</a>" icon="laptop">
+	<CustomCard title="<a href='/docs/compute/'>Compute</a>" customIcon="lucide:cpu">
 	   We help you with the right compute infrastructure for your research IT needs.
-	</Card>
-	<Card title="<a href='/docs/data_science/'>Data Science</a>" icon="seti:bicep">
+	</CustomCard>
+	<CustomCard title="<a href='/docs/data_science/'>Data Science</a>" customIcon="lucide:chart-scatter">
 	   We promote the use of advanced data analytics and AI to get the most out of your data.
-	</Card>
-	<Card title="<a href='/docs/rdm/'>Research Data Management</a>" icon="open-book">
+	</CustomCard>
+	<CustomCard title="<a href='/docs/rdm/'>Research Data Management</a>" customIcon="lucide:folder-tree">
 	   We provide good data management practices and provide support in data organization.
-	</Card>
-	<Card title="<a href='/docs/software_engineering/'>Software Engineering</a>" icon="seti:python">
+	</CustomCard>
+	<CustomCard title="<a href='/docs/software_engineering/'>Software Engineering</a>" customIcon="lucide:git-merge">
 	   We promote good software development practices, offer support in code optimization, management, and deployment.
-	</Card>
+	</CustomCard>
 </CardGrid>

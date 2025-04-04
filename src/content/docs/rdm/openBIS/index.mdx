@@ -1,0 +1,38 @@
+---
+title: openBIS at Empa
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+We are happy to provide you with an useful tool to **manage your research data digitally**, which includes **safe data storage**, **archiving** and **publishing your data in a FAIR repository**.
+
+<Aside type="caution" title="Note">
+  These documentation pages are actively being expanded and not yet finished.
+  We are mainly trying to collect in one place all information needed to work with openBIS at Empa with focus on Empa-specific documentation. If you find any errors or have any comments, don't hesitate to contact us via [e-mail](mailto:openbis-support@empa.ch).
+</Aside>
+
+## Why openBIS?
+
+OpenBIS combines an **Electronic Laboratory Notebook (ELN)**, an **Inventory Management System (LIMS)** and **[FAIR](https://www.nature.com/articles/sdata201618) data management** in one system.
+A presentation about [openBIS](https://openbis.ch/) can be found [here](https://openbis.ch/index.php/overview-of-openbis-and-rdm-services-offered-by-sis/).
+It offers various features and can be customized to meet the researcher's needs.
+
+- It is an open source tool that is under active develpment since 2007 by [ETH](https://sis.id.ethz.ch/) and further developments account for user feedback. It is easy to implement for us at Empa and to adapt to different labs with specific requirements
+- It manages scientific information and supports research data workflows from bench to publication
+- Lab inventory like materials, chemicals, devices can be digitalized and combined with bar- or QR codes and [iPad usage](./3_Use_Cases_of_labs/ipads.md)
+- It supports several [APIs](https://en.wikipedia.org/wiki/API) with data programmatically. For example [jupyter notebooks](https://jupyter.org/) can be used directly in openBIS.
+- Incentives for cooperation through an easy and structured sharing of data and information in an online tool
+- It offers an [archiving solution](https://openbis.readthedocs.io/en/20.10.x/user-documentation/general-users/data-archiving.html) and also a [publishing feature to the FAIR data repository Zenodo](https://openbis.readthedocs.io/en/20.10.x/user-documentation/general-users/data-export.html#export-to-zenodo) for research data stored in openBIS.
+
+## What is openBIS *not* designed for?
+
+While openBIS offers many useful features for research data management, it's important to use it for the appropriate use cases and to evaluate other tools if openBIS doesn't support them.
+Specifically, openBIS **does not offer** the following features natively:
+
+- OpenBIS is not a relational (SQL) database. If you need a database as a persistence layer for your application, order one from the ICT service catalogue.
+- OpenBIS is not a general data archival service. You can archive research data in openBIS via the [archiving feature](https://openbis.readthedocs.io/en/20.10.x/user-documentation/general-users/data-archiving.html), but if you only need data archival for any data, consider the service offered by ICT.
+- OpenBIS is not a code repository. If you need to archive and manage code, use an appropriate platform such as git. For Empa, you can use one of our GitLab instances:
+  - [public](https://gitlab.empa.ch)
+  - [private](https://gitlab-int.empa.ch/users/sign_in)
+- OpenBIS is not a project management tool. To manage projects, use appropriate tools like Microsoft Project, Tasks in Microsoft Teams or Jira.
+- OpenBIS is not a lab resource/instrument booking platform. To manage bookings, consider [OpenIRIS](https://openiris.io/landing/?ReturnUrl=%2f) or [Microsoft Bookings](https://outlook.office365.com/bookings/)

@@ -14,7 +14,7 @@ export default defineConfig({
       title: "Empa Scientific IT",
       customCss: ["./src/styles/custom.css"],
       social: {
-        github: "https://github.com/empa-scientific-it",
+        github: "https://github.com/empa-scientific-it/docs",
         gitlab: "https://gitlab.empa.ch/empa-scientific-it/docs",
       },
       pagination: false,

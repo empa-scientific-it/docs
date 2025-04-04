@@ -1,0 +1,25 @@
+stages:
+  - build
+  - deploy
+
+build-astro:
+  stage: build
+  image: node:20
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1h
+
+deploy:
+  stage: deploy
+  only:
+    - main
+  image: alpine
+  before_script:
+    - apk add openssh-client rsync
+    - chmod 400 $SSH_PRIVATE_KEY_FILE
+  script:
+    - rsync -avh --delete -e "ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY_FILE" dist/ scientificit@du-httpd1:/var/www/scientificit.empa.ch/public/

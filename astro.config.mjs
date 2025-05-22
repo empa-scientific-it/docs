@@ -6,8 +6,7 @@ import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://empa-scientific-it.github.io",
-  base: "/docs",
+  site: "https://empa-scientific-it.netlify.app",
   integrations: [
     icon(),
     starlight({

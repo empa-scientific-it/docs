@@ -4,7 +4,8 @@ import starlight from "@astrojs/starlight";
 import icon from "astro-icon";
 import path from "path";
 
-// https://astro.build/config
+// Check out: https://astro.build/config
+// And Starlight official docs: https://starlight.astro.build
 export default defineConfig({
   site: "https://empa-scientific-it.netlify.app",
   integrations: [

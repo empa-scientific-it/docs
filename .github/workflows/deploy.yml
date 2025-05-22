@@ -39,7 +39,7 @@ jobs:
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: dist
 
   deploy-main:
     needs: build
@@ -61,13 +61,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: site
+          path: dist
 
       - name: Deploy PR preview to gh-pages/pr-N
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: site
+          publish_dir: dist
           destination_dir: pr-${{ needs.build.outputs.pr_number }}
           publish_branch: gh-pages
           keep_files: true # Prevent overwriting main page

@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/lycheeverse/lychee.git
+    rev: v0.15.1
+    hooks:
+      - id: lychee
+        args: ["--base", "dist", "--no-progress"]

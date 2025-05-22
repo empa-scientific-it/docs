@@ -34,7 +34,7 @@ We have experience with a wide range of technologies, including:
 
 Typically, our deliverables are the deployed software with the deployment scripts supported by documentation.
 If needed, we can also provide you with the server infrastructure.
-See more on that in the [Compute section](/docs/compute/).
+See more on that in the [Compute section](/compute/).
 
 ## No further support policy
 

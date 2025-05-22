@@ -18,4 +18,5 @@ If you have any question please contact [Matthias Roesslein](mailto:matthias.roe
 
 ## openBIS training
 
-For more information about the available openBIS trainings or the relevant material, click [here](/rdm/openBIS/education/).
+<!-- FIXLINK -->
+For more information about the available openBIS trainings or the relevant material, click `[here](/rdm/openBIS/education/)`.

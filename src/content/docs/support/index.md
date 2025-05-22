@@ -11,7 +11,7 @@ The table below gives you an overview where to find support for our different ar
 
 | Topic                                      | Find support at                                                         |
 | ------------------------------------------ | ----------------------------------------------------------------------- |
-| OpenBIS                                    | [openBIS support page](/rdm/openbis/support)                       |
+| OpenBIS                                    | `[openBIS support page](/rdm/openbis/support)` <!-- FIXLINK -->        |
 | Data Management Plan (DMP)                 | [DMP support](/rdm/data_management_plan#dmp-templates-and-support) |
 | Open Access (OA)                           | [OA support](/rdm/open_access#support)                             |
 | Compute                                    | [`compute@empa.ch`](mailto:compute@empa.ch)                             |

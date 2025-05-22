@@ -13,7 +13,7 @@ In this section, you will find information about these requirements and links to
 
 ### External templates and tools
 - [The Digital Curation Centre (DCC)](https://www.dcc.ac.uk/dmponline) provides an online tool to fill in and maintaining DMP. It has a collection of all recent DMP for various founding agencies [dmponline](https://dmponline.dcc.ac.uk/)
-- DMP template from Eawag [here](https://opendata.eawag.ch/dmp/)
+- DMP template from Eawag [here](https://opendata.eawag.ch/docs/research-data-management/data_management_plans.html) (only available to download from Eawag intranet)
 - Login page to DMP Canvas Generator platform [here](https://dmp.vital-it.ch/#/login)
 
 ## The Swiss National Science Foundation

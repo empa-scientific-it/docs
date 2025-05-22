@@ -4,7 +4,7 @@ title: Build and run a Docker image
 
 import { Aside, Steps } from '@astrojs/starlight/components';
 
-CSCS provides and maintains the [Container Engine](https://confluence.cscs.ch/spaces/KB/pages/776306695/Container+Engine) (CE), a set of tools to help users run containerized applications exploiting all the features of the underlying hardware.
+CSCS provides and maintains the [Container Engine](https://confluence.cscs.ch/spaces/KB/pages/894960480/Container+Engine) (CE), a set of tools to help users run containerized applications exploiting all the features of the underlying hardware.
 
 <Aside type="note">
 The Container Engine toolset is designed to enable computing jobs to seamlessly run inside Linux application containers, thus providing support for containerized user environments.
@@ -84,7 +84,7 @@ Since it might take some time, we are going to build the image on a computing no
 
 ## Running the container
 One last step before we're able to run a container from the image we built. We need to create an Environment Definition File (EDF).
-Such file tells the CE where to look for the image to run, which folders to mount inside the container, and [many other options](https://confluence.cscs.ch/spaces/KB/pages/776306695/Container+Engine#ContainerEngine-FullEDFreference) we might need/want to customize.
+Such file tells the CE where to look for the image to run, which folders to mount inside the container, and [many other options](https://confluence.cscs.ch/spaces/KB/pages/894960480/Container+Engine#ContainerEngine-EDFReferenceedf_reference) we might need/want to customize.
 For example, we might want to set some environment variables that we need inside the container upon it starts.
 
 <Steps>
@@ -167,4 +167,4 @@ Device 3: NVIDIA GH200 120GB
 
 ## Additional resources
 - [Building container images](https://confluence.cscs.ch/spaces/KB/pages/868834153/Building+container+images+on+Alps)
-- [The Container Engine](https://confluence.cscs.ch/spaces/KB/pages/776306695/Container+Engine)
+- [The Container Engine](https://confluence.cscs.ch/spaces/KB/pages/894960480/Container+Engine)

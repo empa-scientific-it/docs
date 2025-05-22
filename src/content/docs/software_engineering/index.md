@@ -14,4 +14,4 @@ We have experience in many facets of software development, particularly:
 - Deployment using Docker containers
 - Continuous integration and delivery (CI/CD)
 
-You can explore the rest of these sections to learn more about the support we offer for [software development](/docs/software_engineering/development), [deployment](/docs/software_engineering/deployment), or the [training](/docs/software_engineering/training) we provide.
+You can explore the rest of these sections to learn more about the support we offer for [software development](/software_engineering/development), [deployment](/software_engineering/deployment), or the [training](/software_engineering/training) we provide.

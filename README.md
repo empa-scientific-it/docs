@@ -1,5 +1,7 @@
 # Empa Scientific IT Webpage
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e8411471-3628-46e9-a954-a5edd714fdb0/deploy-status)](https://app.netlify.com/projects/empa-scientific-it/deploys)
+
 This is an experimental "clone" of our [official website](https://scientificit.empa.ch).
 
 The website is built with Astro and the Starlight template to provide a more modern, extensible and user-friendly design of our official, internal documentation.

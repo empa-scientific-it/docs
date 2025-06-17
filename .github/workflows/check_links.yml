@@ -50,7 +50,6 @@ jobs:
             # 🔗 Link Checker Report
 
             > [!note]
-            > - The base directory is set to `dist` (Astro build output)
             > - Ignored patterns are defined in `.lycheeignore`
 
             ${{ steps.lychee_report.outputs.content }}

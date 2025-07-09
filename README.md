@@ -1,5 +1,7 @@
 # Empa Scientific IT Webpage
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e8411471-3628-46e9-a954-a5edd714fdb0/deploy-status)](https://app.netlify.com/projects/empa-scientific-it/deploys)
+
 This is an experimental "clone" of our [official website](https://scientificit.empa.ch).
 
 The website is built with Astro and the Starlight template to provide a more modern, extensible and user-friendly design of our official, internal documentation.
@@ -21,7 +23,7 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Starlight looks for `.md` or `.mdx` files in the `src/content/` directory. Each file is exposed as a route based on its file name.
 
 Images can be added to `src/assets/` and embedded in Markdown with a relative link.
 

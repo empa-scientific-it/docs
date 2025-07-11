@@ -1,0 +1,56 @@
+---
+title: Tips for Instance Admins
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="note" title="Open Data">
+    To become an instance admin, an already existing instance admin of your lab needs to use the [support form for a new Instance Admin](../../Support.md). If you do not know an instance admin of your openBIS, write an [email](mailto:openbis-support@empa.ch) for our support.
+</Aside>
+
+As admin, you can **edit the openBIS Admin UI** and define there the meta data structure in openBIS.
+You can find the **links to the openBIS of your lab or other instances of Empa labs in [Pages for labs](../../5_Pages_for_Labs/index.md)**.
+
+In the following sections, some tips are described, that are not very straight forward for someone new and will help you getting more aware of all the features offered. 
+Some general important **how-to guides are in the [section for Admins](../../2_Empa_Documentation/For_Admins/index.md)**.
+You can also have a look at the **section with use cases from labs including [programming in openBIS](../../3_Use_Cases_of_labs/Programming_in_openBIS/index.md)**.
+
+## Registration of new Users and User rights management
+
+As an Instance Manager you can register new users to your Instance yourself.
+
+- **Description of user registration [here](../../2_Empa_Documentation/For_Admins/add_user.md)**. In this link, if you choose the way to register an user to a group in openBIS using the "Project Groups-Management" tool then default rights are assigned via roles to this user. Description of **default user roles [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#default-roles-assigned-in-eln)**.
+- User rights management can be done via roles in openBIS. You can only **assign User rights for the whole instance, on space or project level**. Overview of levels [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html). Description of **roles and their permission options [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#openbis-roles)**
+- You can create **groups of users in the Admin UI to handle rights for several users in one go**. Look up how to this [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#create-users-groups-in-admin-ui)
+
+
+## Information on settings
+
+When clicking on the settings section in openBIS ELN UI, you will always find the option of choosing between General ELN Settings or Group Settings. An openBIS instance can have more than one group, in this case it's a [multi-group instance](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/multi-group-set-up.html).
+Check the ETH documentation for: 
+
+- **[General ELN Settings](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/multi-group-set-up.html#general-eln-settings)**
+- **[Group ELN Settings](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/multi-group-set-up.html#group-eln-settings)**
+
+The biggest difference between the two types of Settings is that the **General ELN Settings contain the Instance Settings**. Instance Settings apply to all groups. The group settings are only applied to the corresponding group in openBIS.
+
+### Hidden sections in openBIS
+
+In the links of the 2 types of settings described in the section above, you can find the paragraph called Miscellaneous (picture below). Per defauld in openBIS the button `Hide Sections by default` is ticked and this means, you won't see list of objects in Collections in the ELN. You can change this manually by unclicking it.
+
+![Show how Miscellaneous looks](src/assets/openBIS/Bild/Misc_Settings.png)
+
+### Storage and Templates
+
+If you want to be able to create Storages and Templates, you have to make sure that you are in the correct Settings ([group, or no group](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/multi-group-set-up.html)). You can configure [Storage](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/customise-inventory-of-materials-and-samples.html#configure-lab-storage) and [Templates](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/create-templates-for-objects.html) in the Settings. both of this features can also be managed by a user, after he has the right role management for the sections.
+
+The [allocations of the storage to the samples](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/managing-storage-of-samples.html#allocate-storage-positions-to-samples), or the [use of templates in experimental steps](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#use-templates-for-experimental-steps) is operated from object side.
+
+
+## Create new entities
+
+To [create new entities](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html) like Objects you have to work in the Admin UI.
+
+After you created a new object, you always need to make it visible in the openBIS ELN. This you do by going to settings and choosing the group settings, then go to the paragraph `Objetc Type definitions Extensions`, where you have to tick `Show in drop downs` for the newly created object. Check description [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html#enable-objects-in-dropdowns). There you will find more possibilities to adjust the usage of objects.
+
+For certain fields, it is possible to enable the use of a Rich Text Editor (RTE) or a spreadsheet component. After the Property field is defined, this has to be enabled as described [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html#enable-rich-text-editor-or-spreadsheet-widgets).

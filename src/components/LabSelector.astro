@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+
+const labs = await getCollection('labs');
+const labsData = await Promise.all(
+  labs.map(async (lab) => {
+    const { Content } = await lab.render();
+    return {
+      id: lab.id,
+      title: lab.data.title,
+      description: lab.data.description,
+      url: lab.data.url,
+    };
+  })
+);
+---
+
+<div class="lab-selector">
+  <select id="labDropdown">
+    <option value="">-- Select a Lab --</option>
+    {labs.map((lab) => (
+      <option value={lab.id}>
+        {lab.data.title}
+      </option>
+    ))}
+  </select>
+</div>
+
+<div id="labContent" class="lab-content hidden">
+  <!-- Content will be loaded here -->
+</div>
+
+<script define:vars={{ labsData }}>
+  const dropdown = document.getElementById('labDropdown');
+  const contentContainer = document.getElementById('labContent');
+  
+  // Function to update content and URL
+  function updateLabContent(selectedLabId) {
+    if (selectedLabId) {
+      const labData = labsData.find(lab => lab.id === selectedLabId);
+      
+      if (labData) {
+        contentContainer.innerHTML = `
+          <div class="lab-details">
+            <h2>${labData.title}</h2>
+            ${labData.description ? `<p class="description">${labData.description}</p>` : ''}
+          </div>
+        `;
+        contentContainer.classList.remove('hidden');
+        
+        // Update URL without page reload
+        const newUrl = `${window.location.pathname}?lab=${selectedLabId}`;
+        window.history.pushState({ lab: selectedLabId }, '', newUrl);
+        
+        // Update page title
+        document.title = `Pages for Labs - ${labData.title}`;
+      }
+    } else {
+      contentContainer.classList.add('hidden');
+      
+      // Remove lab parameter from URL
+      const newUrl = window.location.pathname;
+      window.history.pushState({}, '', newUrl);
+      
+      // Reset page title
+      document.title = 'Pages for Labs';
+    }
+  }
+  
+  // Handle dropdown change
+  dropdown.addEventListener('change', (event) => {
+    const selectedLabId = event.target.value;
+    updateLabContent(selectedLabId);
+  });
+  
+  // Handle browser back/forward buttons
+  window.addEventListener('popstate', (event) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const labFromUrl = urlParams.get('lab');
+    
+    if (labFromUrl) {
+      dropdown.value = labFromUrl;
+      updateLabContent(labFromUrl);
+    } else {
+      dropdown.value = '';
+      updateLabContent('');
+    }
+  });
+  
+  // Initialize from URL on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const labFromUrl = urlParams.get('lab');
+    
+    if (labFromUrl && labsData.find(lab => lab.id === labFromUrl)) {
+      dropdown.value = labFromUrl;
+      updateLabContent(labFromUrl);
+    }
+  });
+</script>
+
+<style>
+  .lab-selector select {
+    padding: 8px 12px;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 4px;
+    font-size: 16px;
+    min-width: 200px;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    margin-bottom: 1rem;
+  }
+  
+  .lab-content {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    background: var(--sl-color-bg-nav);
+  }
+  
+  .lab-content.hidden {
+    display: none;
+  }
+  
+  .lab-details h2 {
+    margin-top: 0;
+    color: var(--sl-color-text-accent);
+  }
+  
+  .description {
+    font-style: italic;
+    color: var(--sl-color-text-dim);
+  }
+  
+  .lab-content-body {
+    margin-top: 1rem;
+  }
+</style>

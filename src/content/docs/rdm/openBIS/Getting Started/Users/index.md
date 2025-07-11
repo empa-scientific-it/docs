@@ -1,0 +1,15 @@
+---
+title: Tips for Users
+---
+
+Dependending on the way you are registered to your openBIS, you have [default rights to some openBIS folders](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#default-roles-assigned-in-eln). 
+The instance admin of your openBIS manages your user rights and therefore your rights can diverge from the default. 
+Contact your instance admin if you need help with your rights in openBIS or you can contact our openBIS support via [email](mailto:openbis-support@empa.ch).
+
+- Check the ETH documentation on these topics:
+  - How to create projects and experiments in the openBIS [Lab Notebook](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html)
+  - How to [share your projects with others](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#share-lab-notebooks-and-projects). Please be aware that **you can only add Empa employees which have access to your openBIS and that the User Id is the e-mail adress written with "_AT_" instead of @, for example: anusch.bachofner_AT_empa.ch**
+- Check our Empa specific documentation:
+  - tips for [working in maintenance](../Tips_for_Users/working_in_maintenance.md) using the inventory
+  - tips for [doing lab experiments](../Tips_for_Users/working_with_experiments.md) using openBIS features
+  - usage of [ipads with openBIS](../../3_Use_Cases_of_labs/ipads.md) in the section with use cases from labs

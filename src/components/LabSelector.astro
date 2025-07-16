@@ -4,12 +4,10 @@ import { getCollection } from 'astro:content';
 const labs = await getCollection('labs');
 const labsData = await Promise.all(
   labs.map(async (lab) => {
-    const { Content } = await lab.render();
     return {
       id: lab.id,
       title: lab.data.title,
-      description: lab.data.description,
-      url: lab.data.url,
+      body: lab.body,
     };
   })
 );
@@ -30,38 +28,38 @@ const labsData = await Promise.all(
   <!-- Content will be loaded here -->
 </div>
 
+<!-- Load marked.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <script define:vars={{ labsData }}>
   const dropdown = document.getElementById('labDropdown');
   const contentContainer = document.getElementById('labContent');
-  
+
   // Function to update content and URL
   function updateLabContent(selectedLabId) {
     if (selectedLabId) {
       const labData = labsData.find(lab => lab.id === selectedLabId);
-      
+
       if (labData) {
+        // Parse markdown to HTML
+        const htmlContent = marked.parse(labData.body);
         contentContainer.innerHTML = `
           <div class="lab-details">
-            <h2>${labData.title}</h2>
-            ${labData.description ? `<p class="description">${labData.description}</p>` : ''}
+            <div class="lab-markdown-content">${htmlContent}</div>
           </div>
         `;
         contentContainer.classList.remove('hidden');
-        
         // Update URL without page reload
         const newUrl = `${window.location.pathname}?lab=${selectedLabId}`;
         window.history.pushState({ lab: selectedLabId }, '', newUrl);
-        
         // Update page title
         document.title = `Pages for Labs - ${labData.title}`;
       }
     } else {
       contentContainer.classList.add('hidden');
-      
       // Remove lab parameter from URL
       const newUrl = window.location.pathname;
       window.history.pushState({}, '', newUrl);
-      
       // Reset page title
       document.title = 'Pages for Labs';
     }
@@ -72,12 +70,12 @@ const labsData = await Promise.all(
     const selectedLabId = event.target.value;
     updateLabContent(selectedLabId);
   });
-  
+
   // Handle browser back/forward buttons
   window.addEventListener('popstate', (event) => {
     const urlParams = new URLSearchParams(window.location.search);
     const labFromUrl = urlParams.get('lab');
-    
+
     if (labFromUrl) {
       dropdown.value = labFromUrl;
       updateLabContent(labFromUrl);
@@ -86,12 +84,12 @@ const labsData = await Promise.all(
       updateLabContent('');
     }
   });
-  
+
   // Initialize from URL on page load
   document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const labFromUrl = urlParams.get('lab');
-    
+
     if (labFromUrl && labsData.find(lab => lab.id === labFromUrl)) {
       dropdown.value = labFromUrl;
       updateLabContent(labFromUrl);
@@ -110,7 +108,7 @@ const labsData = await Promise.all(
     color: var(--sl-color-text);
     margin-bottom: 1rem;
   }
-  
+
   .lab-content {
     margin-top: 1rem;
     padding: 1rem;
@@ -118,22 +116,13 @@ const labsData = await Promise.all(
     border-radius: 8px;
     background: var(--sl-color-bg-nav);
   }
-  
+
   .lab-content.hidden {
     display: none;
   }
-  
+
   .lab-details h2 {
     margin-top: 0;
     color: var(--sl-color-text-accent);
-  }
-  
-  .description {
-    font-style: italic;
-    color: var(--sl-color-text-dim);
-  }
-  
-  .lab-content-body {
-    margin-top: 1rem;
   }
 </style>

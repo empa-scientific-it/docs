@@ -1,5 +1,5 @@
 ---
-title: Research Data Management education
+title: Education
 ---
 
 ## RDM training
@@ -18,4 +18,10 @@ If you have any question please contact [Matthias Roesslein](mailto:matthias.roe
 
 ## openBIS training
 
-For more information about the available openBIS trainings or the relevant material, click [here](/rdm/openBIS/education/).
+At the beginning of every month, usually on a Tuesday, you can attend these trainings from **Matthias Rösslein**.
+You can contact him via **[e-mail](mailto:matthias.roesslein@empa.ch)** for more information (invitation is sent to all instance admins for distribution).
+
+### Material
+
+Check out the ETH training material on Github [here](https://gitlab.ethz.ch/sis-rdm-training/openbis-training).
+[Contact us](/support) if you have questions or need more information.

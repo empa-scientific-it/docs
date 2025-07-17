@@ -1,7 +1,5 @@
 ---
-title: Updates
-sidebar:
-  order: 1
+title: CSCS Updates
 ---
 
 ## 16 Jan 2025

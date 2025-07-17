@@ -6,6 +6,7 @@ Writing a Data Management Plan (DMP) is a requirement of funding agencies.
 In this section, you will find information about these requirements and links to various templates for DMP's.
 
 ## DMP templates and support
+
 ### Empa internal support
 - **Empa SNF DMP template [here](https://www.empa.ch/documents/10817006/0/Empa+DMP+Template+for+SNF/9e33c4e4-dbad-4371-8e05-fb5fd81dcf58)** is a Word document that contains specific answer options for the SNF questions, distinguishing between working with or without openBIS and with regard to sensitive data.
 - **Please request the minimum 10'000 CHF SNF funding for RDM**, which includes money for data preparation, archiving and publishing on FAIR data repositories like Zenodo (it can be more money if you have good reason). It is necessary to give SNF some explanations how the RDM costs are composed. Check the **template for RDM costs [here](https://www.empa.ch/documents/10817006/0/SNF_costs_RDM_basis_v1/10be2210-70c7-4075-8671-7a1938dbaef8)** for information and tranfer it into the SNF propsal (change it where necessary).

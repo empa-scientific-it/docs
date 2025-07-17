@@ -9,7 +9,7 @@ title: First Steps
    - If yes, you need to contact the Instance Admin in your lab to get access
    - If not, use our contact [e-mail](mailto:openbis-support@empa.ch) to learn about the steps to get an openBIS instance for your lab (Here is the demo from openBIS on the official openBIS page [here](https://openbis.ch/index.php/demo/#demo))
 3. For more in-depth information:
-   - Chapter [Empa Documentation](/rdm/openbis)
+   - Chapter [Empa Documentation](/research-data-management/openbis)
    - Chapter Use Cases of lab e.g. [Programming in openBIS](../3_Use_Cases_of_labs/Programming_in_openBIS/index.md)
 3. For more detailed questions check our [Support](../support)
 5. Get more ideas via interaction with the [Community](../4_Community/index.md)

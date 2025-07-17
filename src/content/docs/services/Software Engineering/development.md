@@ -1,5 +1,7 @@
 ---
 title: Software Development
+sidebar:
+  order: 2
 ---
 
 ## Best practices
@@ -31,7 +33,7 @@ The following list is not exhaustive, so don't forget to check our repositories 
 
 ### OpenBIS
 
-View our OpenBIS related repositories on [GitLab](https://gitlab.empa.ch/openbis-tools)
+View our OpenBIS related repositories on [GitLab](https://gitlab.empa.ch/openbis-tools).
 
 ### GraphSearch
 

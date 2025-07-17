@@ -35,8 +35,8 @@ The current team members are:
 - Stefanie Hauser (Experimentalist, Use Cases and Support for openBIS)
 - Fabio Lopes (Data scientist)
 - Matthias Rösslein (RDM expert)
-- Aliaksandr Yakutovich (Research software engineer)
 - Pascal Su (Research software engineer)
+- Aliaksandr Yakutovich (Research software engineer)
 
 ## Education
 

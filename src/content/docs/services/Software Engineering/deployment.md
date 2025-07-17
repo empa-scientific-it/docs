@@ -11,13 +11,13 @@ We have experience with a wide range of technologies, including:
 
 ### Software
 
-- [Python](https://www.python.org/) with pre-configured environments (e.g. [Anaconda](https://www.anaconda.com/)).
-- [Jupyter](https://jupyter.org/).
-- Various databases ([MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), [MongoDB](https://www.mongodb.com/), etc.).
-- Web servers ([Apache](https://apache.org/), [Nginx](https://nginx.org/en/), etc.).
-- [AiiDA](https://www.aiida.net/) and [AiiDAlab](https://www.aiidalab.net/).
-- [openBIS](./openbis).
-- [Binder](https://mybinder.org/).
+- [Python](https://www.python.org/) with pre-configured environments (e.g. [Anaconda](https://www.anaconda.com/))
+- [Jupyter](https://jupyter.org/)
+- Various databases ([MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), [MongoDB](https://www.mongodb.com/), etc.)
+- Web servers ([Apache](https://apache.org/), [Nginx](https://nginx.org/en/), etc.)
+- [AiiDA](https://www.aiida.net/) and [AiiDAlab](https://www.aiidalab.net/)
+- [openBIS](./openbis)
+- [Binder](https://mybinder.org/)
 
 ### Platforms
 
@@ -34,7 +34,7 @@ We have experience with a wide range of technologies, including:
 
 Typically, our deliverables are the deployed software with the deployment scripts supported by documentation.
 If needed, we can also provide you with the server infrastructure.
-See more on that in the [Compute section](/compute/).
+See more on that in the [Compute section](/services/compute/).
 
 ## No further support policy
 

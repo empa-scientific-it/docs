@@ -1,0 +1,44 @@
+---
+title: Upload large data sets
+---
+
+## Introduction
+
+OpenBIS is designed to store both the data and the metadata from your research project. The metadata usually describes **how** you performed your study, while the data contains the measurements and observations in your experiments. These are often very large files, that the [data upload via ELN UI](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-web-ui) cannot handle reliably, which is the case for files larger than 10 GB.
+
+To upload larger datasets (> 10GB), we offer another way through Empa's `N:` drive where you can simply drag and drop your files in a lab related folder and after a delay of approx. 20 minutes the upload appears as an attachment on your chosen openBIS entity (e.g. collection, object etc.).
+
+To learn how to upload large data to openBIS, which is called `data upload via (ELN-LIMS) dropbox` by ETH, please follow the instructions below.
+
+## Instructions
+
+1. First, you need to decide which upload strategy you want to adopt:
+
+   - **auto**: openBIS continuously monitors the upload directory named auto and when a new file appears it is automatically moved to openBIS as an attachment after a predefined inactivity period (usually 20 minutes). This waiting time is added to prevent the system to start an upload while a large file is still being copied to the upload directory.
+   - **marker**: the upload to openBIS is started when the system sees a special file called [marker file](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#dropbox-with-markerfile). This is ideal to upload very large files which can take long time to move to the upload directory.
+
+1. Then, you need to find the upload folder for your openBIS group. On your Empa machine, go to `N:` drive and see  folders named after the following structure: `OB-LXXX-Groupname`
+
+   - `XXX` is the ID of your instance, which corresponds to the number of your department.
+   - `Groupname` is the name of the openBIS group you belong to. It can be a name chosen by your lab members when setting up openBIS or the default name  `AbtXXX` where `XXX` is the official lab number. For example, for the department 502, we have `OB-502AIM` for the `AIM` group of lab 502, as shown in the screenshot.
+
+    ![groups](src/assets/openBIS/Bild/groups.png)
+
+1. Open the [ELN UI browser of your lab](../../5_Pages_for_Labs/index.md), choose the right [login](../../1_Getting_Started/01_Login.md), and navigate to the entity ([object or experiment/collection](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html)) where you want to upload data. In this example, we want to upload a file to the collection `Creep measurements` of Maurice Biot's lab notebook.
+
+    ![entity page](src/assets/openBIS/Bild/entity_page.png)
+
+1. Follow the **[instructions in this link](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-dropbox)** to create the folder connected to the upload place in openBIS (e.g. collection `Creep measurements`) and if needed the marker file with the correct naming (in case of the marker upload option). When following the instructions, **be aware that ETH documentation calls the folder in N:drive (e.g. `OB-502AIM` or `OB-L207-Abt207`) the _eln-lims-dropbox_ folder**. Depending on the upload version you will use on `N:` drive in the folder `OB-LXXX-Groupname` (e.g. `OB-502AIM` or `OB-L207-Abt207`) the already existing folders `auto` or `marker`:
+
+    ![auto folder](src/assets/openBIS/Bild/auto_folder.png)
+
+1. When you created all folders in the right place according to the instructions above, you can move your data files or data directory inside.
+
+1. Data files will be automatically uploaded to openBIS after the following timeframe depending on the upload option auto or marker:
+
+   - auto: 20 minutes after nothing happend anymore in the folder auto
+   - marker: Shortly after the marker file appeared in the right folder
+
+1. Check via [Dropbox monitor](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#dropbox-monitor) the status of the data upload.
+
+It is also possible to **register metadata for datasets** via this so called `dropbox upload`, which was described above. Check the instructions [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#registration-of-metadata-for-datasets-via-dropbox).

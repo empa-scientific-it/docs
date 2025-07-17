@@ -1,0 +1,31 @@
+---
+title: Add attachment to table in objects
+---
+
+## Introduction
+There are cases, where we want to know, if there are attachments on the openBIS objects. E.g. in an overview of devices to see where are manuals apparent and where not.
+
+For that cases it's possible to add a dynamic property plugin to an property field when creating an Object in the Admin interface.
+
+## Solution
+
+First you have to create a dynamic property. Go to your Admin User Interface, choose `Tools` on the top left, click on `Dynamic Property Plugins` and `Add` a new one. There you copy the following code where `Script *` is written.
+
+```python
+
+def calculate():
+
+    ''' If you want to know, if there is an attachment on an Object and display that information in an openBIS table (from a Collection or an Default Experiment)
+    You can add this dynamic property plugin to a property field in the object. It will give an additional column. You can change True and False in any Text you want.
+    '''
+        
+    if entity.dataSets():
+        return "True"
+    else:
+        return "False"
+```
+
+
+After that, go to the object contained in such a list, which should already indicate in the table if there is an attachment. To do this, you need to add a new property, select `VARCHAR` as the data type and add the `Dynamic Property Plugin` you just created.
+
+![Addition of an dynamic property to an object in an property field](src/assets/openBIS/Bild/Dyn_Prop_Attachment.png)

@@ -1,0 +1,115 @@
+---
+title: Masterdata import to create objects including dynamic properties
+--- 
+
+In this example we want to create an object whose properties are filled with the property values of its assigned parent via dynamic property scripts. First we will create an example of such a script attached to the object's property and then we will use the masterdata export & import to more easily create a lot of object properties with such dynamic property scripts. 
+This example is tested on objects with only one parent.
+
+## Creation of an example dynamic property script which is added to a property of an object
+### 1. Create a new dynamic property script or chose an existing one
+In the Admin Interface, click on the top section `Tools` and there on the left click on the section `Dynamic Property Plugins` and then click on the button `Add` on the bottom left. Here is a picture of the exammple (Learn more about these scripts written in Jython which is based on Python 2.7 [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/properties-handled-by-scripts.html#creating-scripts)):
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_overview.png)
+
+Below you can find the complete script of the picture above added in the Script section (another example of a dynamic property plugin script is here [Dynamic property: Get property value of objects](./property_object.md)).
+The script below in the function calculate() reads the value of the property `MANUFACTURER_NAME` of the object's parent and writes this value into the object's property where this dynamic property plugin script is attached to. If you would like to change what value is taken from the parent then you only have to change the function calculate() and there you type in the correct name of the property instead of `MANUFACTURER_NAME`.
+```python
+from ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.update import SampleUpdate;
+from ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.id import SamplePermId;
+from ch.systemsx.cisd.openbis.generic.server import CommonServiceProvider;
+from ch.ethz.sis.openbis.generic import OpenBIS;
+from ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions import SampleFetchOptions;
+from ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.id import SamplePermId
+
+def getLinkedObject(entity, name):
+    """
+    This function takes an entity (available in `calculate`) and a property 
+    name (`name`) that corresponds to an an object property with the OBJECT type and returns a V3 API Sample object corresponding to the object
+    the property refers to or None if the sample or the property cannot be found
+    """
+    #Get the V3 api and connect as system user
+    #session_token = CommonServiceProvider.getApplicationServerApi().loginAsSystem();
+    #v3api = OpenBIS("http://localhost:8080");
+    #v3api.setSessionToken(session_token);
+    #Configure the fetch options used to retreive the sample from the V3 API
+    #sfo = SampleFetchOptions()
+    #This means that we retreive properties but also children and the parents of the object the property links to
+    sfo.withProperties()
+    sfo.withChildren()
+    sfo.withParents()
+    # Get the string value of the TESTOBJECT property using the "normal" dynamic property API
+    pe = entity.property(name)
+    if pe:
+        permid = pe.getPropertyPE().tryGetUntypedValue()
+        #Create a SamplePermID object, this is needed by the getSamples method of the V3 API
+        ipermid = SamplePermId(permid)
+        result = v3api.getSamples([ipermid], sfo)
+        return result.get(ipermid)
+
+def calculate():
+    #Be careful here: if the property with the chosen name does not exist, sample is None
+    #sample = getLinkedObject(entity, "EINGANGSNUMMER_MATERIALS_OBJECT")
+    #Get the properties of the sample. 
+    # Be careful, the "sample" object is a V3 API object (https://openbis.ch/javadoc/20.10.x/javadoc-api-v3/ch/ethz/sis/openbis/generic/asapi/v3/dto/sample/Sample.html)
+    # while the entity object (which is available in calculate) implements IEntityPropertyAdapter (https://openbis.ch/javadoc/20.10.x/javadoc-dynamic-api/ch/systemsx/cisd/openbis/generic/shared/hotdeploy_plugins/api/IEntityPropertyAdaptor.html)
+    # The properties are a Java Map, they can be accessed like a dictionary using []
+    #return sample.properties.get("PRODUCT_NAME","missing")
+    if entity.parents():
+        result = [p.propertyValue("MANUFACTURER_NAME") for p in entity.parents()][0]
+        #Don't forget the Error handling, here for this example:
+        if not result:
+            return "missing"
+        else:
+            return result
+```
+### 2. After you created the dynamic property script you can add it to the object's property
+**You have to add the script before you safe the corresponding property to the object, because after the first saving it’s not possible to add it later.**
+Picture of adding the above dynamic property script to the property of an object:
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_object.png)
+
+### 3. Test in the ELN UI if your script works. 
+In this example it works if the property value of the parent is filled correctly into the right property of the object.
+
+## Use the masterdata export & import to more easily create a lot of object properties with such dynamic property scripts
+
+### 1. Download Masterdata from an existing object including a dynamic property script 
+There is also the [ETH documentation link for masterdata export](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/masterdata-exports-and-imports.html#masterdata-export)
+
+- Use the example described above or another object which contains dynamic property scripts to continue the workflow. Important is that the scripts are tested and you know they work.
+- Got to the `Admin Interface`, click on the top on the section `Types` and then click on the words `Object Types`. Then it opens on the right side a table where you can search the object mentioned above or the one you want to use.
+- Click on button `EXPORTS` and choose `Yes` in Import Compatible, because we want to re-import it after changing the export. Then click on the blue button `EXPORT` at the end.
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_object_export.png)
+
+### 2. Use the Masterdata import to create complex objects including various dynamic property scripts 
+There is also the [ETH documentation link for masterdata import](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/masterdata-exports-and-imports.html#masterdata-import)
+
+- Unzip the downloaded file from the first part above. The excel file `object-types.xlsx` (the masterdata file) contains information about the object including a table in which the rows correspond to the properties in the object and the headers to the information inside of the property definition (view picture below). The folder called `scripts` contains the dynamic property scripts included in the object. These scripts are written in Jython which is based on Python 2.7, view documentation [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/properties-handled-by-scripts.html#creating-scripts).
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_excel_properties.png)
+
+- Now you can multiply the dynamic property scripts in the folder `scripts` by copy and pasting and changing the needed code parts to reflect the different property values (view example at the [beginning of this page](#creation-of-an-example-dynamic-property-script-which-is-added-to-a-property-of-an-object)). Choose file names for the new dynamic property scripts that are useful for navigation within the Admin Interface. In our example the script file name includes the name of the property it refers to and at the end the needed file type `.py`. Then you need to add the script file names to the correct place in the masterdata sheet, so that the scripts will also be uploaded with the masterdata import to the correct property. In our example the script file names can be created automatically in the masterdata excel file `object-types.xlsx` by using the ampersand (&) to concatenate strings in already existing columns, just make sure that at the end only the values are entered in the correct place in the masterdata excel and not the formula with the concatenation. View picture below for some visualization of the process:
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_excel_adding_namings.png)
+
+- Now import the changed masterdata excel `object-types.xlsx`and the `scripts` folder to openBIS via Admin Interface by zipping it first, checking if the zip contains everything (if the excel was still opened then the zip sometimes missed it)
+- Go to the Admin Interface, then the section `TOOLS` on top, then on the left side open the section `Import`, click on `All` and then on the right side choose the zipped file for import. If you changed existing properties, choose `update if exists`. If you have only addition choose `ignore if exists`. Import the file and hope for no errors, if there are errors check our troubleshoot examples further down.
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_masterdata_import.png)
+
+- Test if everything works like intended by checking the content of the object in the ELN Interface
+
+### 3. Troubleshooting examples if masterdata import fails
+
+- The first row in the error message will give you a hint where to look in the masterdata excelfile for errors (e.g. Sheet: 1-Line:12 in the picture below ). Look for typos and everything that could be the reasons.
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_troubleshoot1.png)
+
+- You the option to delete the property in the Admin Interface that gives the error in the import. For this go to the section `TYPES` on the top in the Admin Interface and then on the left side you will find the section `Property Types`, click on it to find the property.
+
+![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_troubleshoot2.png)
+
+- Use `ignore if exists` and update values separately in Admin Interface
+
+

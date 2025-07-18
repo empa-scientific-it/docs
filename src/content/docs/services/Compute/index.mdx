@@ -2,6 +2,8 @@
 title: Compute
 sidebar:
   label: Overview
+  order: 1
+tableOfContents: false
 ---
 
 We assist Empa researchers in finding the optimal solution for their research projects' compute needs.
@@ -17,13 +19,16 @@ To get in touch with us, please refer to the [contact page](/support/).
 
 ## Dive deeper
 
+import { CardGrid } from '@astrojs/starlight/components';
 import CustomCard from '@components/CustomCard.astro';
 
-<CustomCard
-	title="<a href='/services/compute/cscs_for_empa'>Empa partnership with CSCS</a>"
-	customIcon="lucide:handshake"
-/>
-<CustomCard
-	title="<a href='/services/compute/cscs_updates'>CSCS Updates</a>"
-	customIcon="lucide:flag-triangle-right"
-/>
+<CardGrid>
+  <CustomCard
+    title="<a href='/services/compute/cscs_for_empa'>Empa partnership with CSCS</a>"
+    customIcon="lucide:handshake"
+  />
+  <CustomCard
+    title="<a href='/services/compute/cscs_updates'>CSCS Updates</a>"
+    customIcon="lucide:flag-triangle-right"
+  />
+</CardGrid>

@@ -1,8 +1,9 @@
 ---
 title: Data Science
+sidebar:
+  order: 2
+tableOfContents: false
 ---
-
-import { Card } from '@astrojs/starlight/components';
 
 Whether you are an experienced analyst or just starting to explore the world of data science, our team can provide the essential knowledge, tools, and support needed.
 We are here to demystify the process and help you acquire the skills and confidence necessary to excel in this exciting field.
@@ -17,25 +18,39 @@ To learn more about the SDSC, you can visit their website [here](https://www.dat
 From data analysis and visualization to troubleshooting your model, we are here to assist you.
 We keep up with the latest industry trends and technologies in order to provide insights for various data science topics.
 
-<Card title="Data Cleaning and Preprocessing">
-  Understanding and cleaning messy or incomplete data.
-  Preparing a dataset for analysis.
-</Card>
+import { CardGrid } from '@astrojs/starlight/components';
+import CustomCard from '@components/CustomCard.astro';
 
-<Card title="Exploratory Data Analysis">
-  Visualizing and summarizing data to identify patterns and trends, and uncover insights.
-</Card>
-
-<Card title="Data Visualization">
-  Presenting data effectively through charts and graphs.
-  Creating interactive dashboards.
-</Card>
-
-<Card title="Analysis and Categorization">
-  Modeling relationships between variables and making predictions.
-  Forecasting or analyzing data that varies over time.
-  Categorizing data.
-</Card>
+<CardGrid>
+  <CustomCard
+    title="Data Cleaning and Preprocessing"
+    customIcon="lucide:filter"
+  >
+    Understanding and cleaning messy or incomplete data.
+    Preparing a dataset for analysis.
+  </CustomCard>
+  <CustomCard
+    title="Exploratory Data Analysis"
+    customIcon="lucide:bar-chart"
+  >
+    Visualizing and summarizing data to identify patterns and trends, and uncover insights.
+  </CustomCard>
+  <CustomCard
+    title="Data Visualization"
+    customIcon="lucide:pie-chart"
+  >
+    Presenting data effectively through charts and graphs.
+    Creating interactive dashboards.
+  </CustomCard>
+  <CustomCard
+    title="Analysis and Categorization"
+    customIcon="lucide:layout-dashboard"
+  >
+    Modeling relationships between variables and making predictions.
+    Forecasting or analyzing data that varies over time.
+    Categorizing data.
+  </CustomCard>
+</CardGrid>
 
 ## How to Reach Out
 

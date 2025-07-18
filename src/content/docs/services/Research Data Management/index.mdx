@@ -2,6 +2,8 @@
 title: Research Data management
 sidebar:
   label: Overview
+  order: 3
+tableOfContents: false
 ---
 
 Research Data management (RDM) addresses the organization, capture, storage, preservation, and sharing of research data created during a research project.
@@ -13,25 +15,28 @@ Find out how to get support and training for data management and open access dat
 
 ## Dive deeper
 
+import { CardGrid } from '@astrojs/starlight/components';
 import CustomCard from '@components/CustomCard.astro';
 
-<CustomCard
-	title="<a href='/services/research-data-management/benefits_and_guidelines'>Benefits and Guidelines</a>"
-	customIcon="lucide:scroll-text"
-/>
-<CustomCard
-	title="<a href='/services/research-data-management/data_management_plan'>Data Management Plan</a>"
-	customIcon="lucide:notebook-pen"
-/>
-<CustomCard
-	title="<a href='/services/research-data-management/education'>Education</a>"
-	customIcon="lucide:book-open"
-/>
-<CustomCard
-	title="<a href='/services/research-data-management/open_access'>Open Access</a>"
-	customIcon="lucide:door-open"
-/>
-<CustomCard
-	title="<a href='/services/research-data-management/open_data_licenses'>Open Data Licenses</a>"
-	customIcon="lucide:scale"
-/>
+<CardGrid>
+  <CustomCard
+    title="<a href='/services/research-data-management/benefits_and_guidelines'>Benefits and Guidelines</a>"
+    customIcon="lucide:scroll-text"
+  />
+  <CustomCard
+    title="<a href='/services/research-data-management/data_management_plan'>Data Management Plan</a>"
+    customIcon="lucide:notebook-pen"
+  />
+  <CustomCard
+    title="<a href='/services/research-data-management/education'>Education</a>"
+    customIcon="lucide:book-open"
+  />
+  <CustomCard
+    title="<a href='/services/research-data-management/open_access'>Open Access</a>"
+    customIcon="lucide:door-open"
+  />
+  <CustomCard
+    title="<a href='/services/research-data-management/open_data_licenses'>Open Data Licenses</a>"
+    customIcon="lucide:scale"
+  />
+</CardGrid>

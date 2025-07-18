@@ -1,5 +1,5 @@
 ---
-title: Training
+title: Education
 ---
 
 ## Python Tutorial

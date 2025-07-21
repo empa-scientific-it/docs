@@ -1,8 +1,10 @@
 ---
-title: Join the openBIS community
+title: openBIS Community
+sidebar:
+  order: 4
 ---
 
-## openBIS at Empa on Teams
+## Join the openBIS community at Empa on Teams
 Join [here](https://teams.microsoft.com/l/team/19%3AJ7wHLbktsh6U8KC4WqxedwLHdoQW4_5Mk2b80Xwlehk1%40thread.tacv2/conversations?groupId=9262122f-e3ad-4faf-b711-a95cd03fc359&tenantId=57d89df2-dd68-41c1-9b64-81f74f077112) for Empa internal discussion and exchange on openBIS via **Teams**.
 Contact us via [e-mail](mailto:openbis-support@empa.ch) if you have problems joining or other questions.
 

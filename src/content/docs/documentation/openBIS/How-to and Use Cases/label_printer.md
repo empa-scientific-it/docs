@@ -1,5 +1,5 @@
 ---
-title: Inventory with printed QR-code labels
+title: Inventory with QR-code labels
 ---
 
 If you have a sample or chemical inventory in the lab, labeling the samples or chemicals with bar-/QR-codes and reading the labels with mobile devices (e.g. [ipads](./ipads.md), tablet or smartphone) helps managing the inventory. 

@@ -1,6 +1,20 @@
 ---
 title: Add attachment to table in objects
+sidebar:
+    hidden: true
 ---
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+<Breadcrumbs
+  linkTextFormat="sentence"
+  customizeListElements={[
+    { index: 0, remove: true },
+    { index: 1, remove: true },
+  ]}
+  separatorAriaHidden={false}
+/>
 
 ## Introduction
 There are cases, where we want to know, if there are attachments on the openBIS objects. E.g. in an overview of devices to see where are manuals apparent and where not.

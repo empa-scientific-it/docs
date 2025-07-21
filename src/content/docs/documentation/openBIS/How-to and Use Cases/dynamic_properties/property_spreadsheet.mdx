@@ -1,6 +1,20 @@
 ---
 title: Read/write programmatically into spreadsheet
+sidebar:
+    hidden: true
 ---
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+<Breadcrumbs
+  linkTextFormat="sentence"
+  customizeListElements={[
+    { index: 0, remove: true },
+    { index: 1, remove: true },
+  ]}
+  separatorAriaHidden={false}
+/>
 
 ## Introduction
 

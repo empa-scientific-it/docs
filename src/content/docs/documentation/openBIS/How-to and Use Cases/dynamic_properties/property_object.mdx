@@ -1,6 +1,20 @@
 ---
 title: Get value of a property in an object
+sidebar:
+    hidden: true
 ---
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+<Breadcrumbs
+  linkTextFormat="sentence"
+  customizeListElements={[
+    { index: 0, remove: true },
+    { index: 1, remove: true },
+  ]}
+  separatorAriaHidden={false}
+/>
 
 ## Background
 You have created an `OBJECT` in openBIS (e.g called **CHEMICAL**) and you would like to create a new `OBJECT` (e.g. called **CHEMICAL_MOL**) which contains automatically values of a `Property` (e.g. called **MOLECULAR_WEIGHT**) from the `OBJECT` **CHEMICAL**. 

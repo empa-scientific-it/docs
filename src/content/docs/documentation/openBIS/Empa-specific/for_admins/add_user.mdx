@@ -1,6 +1,20 @@
 ---
 title: Register a new user
+sidebar:
+  hidden: true
 ---
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+<Breadcrumbs
+  linkTextFormat="sentence"
+  customizeListElements={[
+    { index: 0, remove: true },
+    { index: 1, remove: true },
+  ]}
+  separatorAriaHidden={false}
+/>
 
 Check the 2 ways below to register a new user to your openBIS which **can only be carried out by an instance admin**:
 

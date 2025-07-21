@@ -1,6 +1,20 @@
 ---
-title: Working with experiments
+title: Tips for Experiments
+sidebar:
+  hidden: true
 ---
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+<Breadcrumbs
+  linkTextFormat="sentence"
+  customizeListElements={[
+    { index: 0, remove: true },
+    { index: 1, remove: true },
+  ]}
+  separatorAriaHidden={false}
+/>
 
 ## OpenBIS the ELN-LIMS
 
@@ -49,7 +63,7 @@ The same is prepared for an ELN, simply on the PC, with the help of protocols an
 Then, when working in the lab, the actual values are added and experimental observations are listed.
 
 It's possible to work with openBIS on tablets and iPads.
-[Scientific IT](../../../../index.md) distributed already several of them amongst Empa labs and [provided a short starting guide](../../3_Use_Cases_of_labs/ipads.md).
+Scientific IT distributed already several of them amongst Empa labs and [provided a short starting guide](../../3_Use_Cases_of_labs/ipads.md).
 If you are interested to get an iPad, contact your instance admin or contact us via [email](mailto:openbis-support@empa.ch).
 
 ### Analyzing data stored in openBIS

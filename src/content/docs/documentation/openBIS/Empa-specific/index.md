@@ -1,5 +1,8 @@
 ---
-title: Empa Documentation
+title: Empa-specific Documentation
+sidebar:
+  label: Overview
+  order: 2
 ---
 
 ## General openBIS documentation at ETH

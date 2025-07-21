@@ -1,5 +1,7 @@
 ---
 title: First Steps
+sidebar:
+  order: 1
 ---
 
 ![Getting Started Workflow](src/assets/openBIS/Bild/GettingstartedopenBIS.png)

@@ -30,8 +30,7 @@ export default defineConfig({
         },
         {
           label: "Documentation",
-          autogenerate: { directory: "/documentation" },
-          collapsed: true
+          autogenerate: { directory: "/documentation", collapsed: true },
         },
       ],
     }),

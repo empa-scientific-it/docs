@@ -1,5 +1,5 @@
 ---
-title: Empa partnership with CSCS
+title: Empa Partnership with CSCS
 ---
 
 Every Empa laboratory can request access to the High-Performance Computing (HPC) resources provided by the [Swiss National Supercomputing Centre](https://cscs.ch) (CSCS).

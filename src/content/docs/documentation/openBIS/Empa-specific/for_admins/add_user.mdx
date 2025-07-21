@@ -4,22 +4,23 @@ sidebar:
   hidden: true
 ---
 
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
+import { Aside } from '@astrojs/starlight/components';
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
 
-<Breadcrumbs
-  linkTextFormat="sentence"
-  customizeListElements={[
-    { index: 0, remove: true },
-    { index: 1, remove: true },
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'Empa-specific', link: '/documentation/openbis/empa-specific' },
+    { label: 'For Instance Admins', link: '/documentation/openbis/empa-specific/for_admins' },
+    { label: 'Register a new user', link: '/documentation/openbis/empa-specific/for_admins/add_user' },
   ]}
-  separatorAriaHidden={false}
 />
 
 Check the 2 ways below to register a new user to your openBIS which **can only be carried out by an instance admin**:
 
-!!! warning
-    This only works for users that have an account at Empa. We currently do not have a solution for external users. If you have such a case, please contact us via [email](mailto:openbis-support@empa.ch) and we will try to find a solution for you.
+<Aside type="note">
+  This only works for users that have an account at Empa. We currently do not have a solution for external users. If you have such a case, please contact us via [email](mailto:openbis-support@empa.ch) and we will try to find a solution for you.
+</Aside>
 
 ## Registration independently of a group in openBIS using the Admin UI
 
@@ -114,32 +115,15 @@ Because the user group management for openBIS at Empa is managed through [LDAP](
 
 However, openBIS manages users and groups through another internal mechanism. Therefore, the LDAP groups and users are synchronized with the openBIS users on a regular schedule using a so-called _maintenance plugin_ as explained [here](https://unlimited.ethz.ch/display/openBISDoc2010/User+Group+Management+for+Multi-groups+openBIS+Instances#UserGroupManagementforMultigroupsopenBISInstances-ContentoftheReportFilesentbyUsageReportingTask). Thus, when you add a new user to the LDAP group, expect a certain delay until the new user is able to login to your instance.
 
-```puml
-@startuml
-!include <archimate/Archimate>
-
-archimate #Technology "OpenBIS Server" as openBIS <<technology-device>>
-
-archimate #Technology "AAI" as aai <<technology-device>>
-
-
-
-
-
-rectangle Empa {
-  archimate #Technology "LDAP" as LDAP <<technology-device>>
-  archimate #Technology "user" as user <<actor>>
-}
-
-user -> openBIS: 1. Request
-openBIS -> aai: 1. Redirect
-aai -> user: 1. Ask for authentication
-user -> aai: 1. Authenticate
-aai -> openBIS: 1. access
-LDAP .. openBIS: groups via synchronization task
-LDAP .. user
-
-@enduml
-
-
+```mermaid
+  graph TD
+    A[User 👨‍💻] --Request--> B[openBIS server 🖥️]
+    B --Redirect--> C[AAI 🖥️]
+    C --Ask for authentication--> A
+    A --Authenticate--> C
+    C --Access--> B
+    subgraph Empa
+      A -.- D[LDAP 🖥️]
+    end
+      D -.Groups via Synchronization Task..- B
 ```

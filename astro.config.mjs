@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import icon from "astro-icon";
+import mermaid from 'astro-mermaid';
 
 // Check out: https://astro.build/config
 // And Starlight official docs: https://starlight.astro.build
@@ -9,6 +10,7 @@ export default defineConfig({
   site: "https://empa-scientific-it.netlify.app",
   integrations: [
     icon(),
+    mermaid(),
     starlight({
       title: "Empa Scientific IT",
       customCss: ["./src/styles/custom.css"],

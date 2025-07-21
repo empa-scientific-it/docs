@@ -4,16 +4,15 @@ sidebar:
     hidden: true
 ---
 
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
 
-<Breadcrumbs
-  linkTextFormat="sentence"
-  customizeListElements={[
-    { index: 0, remove: true },
-    { index: 1, remove: true },
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'How-to and Use Cases' },
+    { label: 'Dynamic Properties', link: '/documentation/openbis/how-to-and-use-cases/dynamic_properties' },
+    { label: 'Masterdata import to create objects including dynamic properties', link: '/documentation/openbis/how-to-and-use-cases/dynamic_properties/masterdata_import_object' },
   ]}
-  separatorAriaHidden={false}
 />
 
 In this example we want to create an object whose properties are filled with the property values of its assigned parent via dynamic property scripts. First we will create an example of such a script attached to the object's property and then we will use the masterdata export & import to more easily create a lot of object properties with such dynamic property scripts. 

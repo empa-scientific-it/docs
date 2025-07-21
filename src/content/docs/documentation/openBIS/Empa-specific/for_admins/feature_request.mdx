@@ -4,16 +4,15 @@ sidebar:
   hidden: true
 ---
 
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
 
-<Breadcrumbs
-  linkTextFormat="sentence"
-  customizeListElements={[
-    { index: 0, remove: true },
-    { index: 1, remove: true },
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'Empa-specific', link: '/documentation/openbis/empa-specific' },
+    { label: 'For Instance Admins', link: '/documentation/openbis/empa-specific/for_admins' },
+    { label: 'Process of feature request', link: '/documentation/openbis/empa-specific/for_admins/feature_request' },
   ]}
-  separatorAriaHidden={false}
 />
 
 ## Motivation

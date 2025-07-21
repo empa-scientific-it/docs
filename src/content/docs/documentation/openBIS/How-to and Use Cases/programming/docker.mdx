@@ -4,16 +4,15 @@ sidebar:
     hidden: true
 ---
 
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
 
-<Breadcrumbs
-  linkTextFormat="sentence"
-  customizeListElements={[
-    { index: 0, remove: true },
-    { index: 1, remove: true },
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'How-to and Use Cases' },
+    { label: 'Programming in openBIS', link: '/documentation/openbis/how-to-and-use-cases/programming' },
+    { label: 'Docker and app development with Budibase', link: '/documentation/openbis/how-to-and-use-cases/programming/docker' },
   ]}
-  separatorAriaHidden={false}
 />
 
 ### Introduction and motivation
@@ -22,9 +21,12 @@ This tutorial is meant for experienced openBIS users that want to develop plugin
 
 As an example application connected to openBIS, we include [budibase](https://budibase.com/), a low-code tool that enables you to develop webb apps visually and without having to write a lot of code. We created and include an example app that connects to the local openBIS instance and writes an object based on the user input.
 
-!!! warning
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="note">
     The testing instance is purely local on the development machine and is in no way connected with your lab's instance.
     However, if you use the [budibase](#budibase-basics) app, you can connect the app to another instance.
+</Aside>
 
 For this, we will use the official openBIS docker image which you can find [here](https://hub.docker.com/r/openbis/debian-openbis).
 
@@ -41,56 +43,31 @@ To understand this tutorial you should at least:
 
 The architecture of the development environment is shown below:
 
-```puml
-@startuml
-node [Server] {
-    component [DockerRuntime] {
-        component  [openBIS] {
-
-        }
-        component [budibase] {
-
-        }
-
-        component [dockerNetwork] as dockerNetwork{
-            port 80 as budibaseHTTP
-            portout 10000 as budibaseHTTPOut
-            port 443 as openbisHTTP 
-            portout 8443 as openbisHTTPOut
-            budibaseHTTP .. budibaseHTTPOut
-            openbisHTTP .. openbisHTTPOut
-
-
-        }
-        openBIS --> openbisHTTP: "GUI and API"
-        budibase --> budibaseHTTP: "GUI"
-        budibase --> openbisHTTP: "OpenBIS API"
-    }
-    database [openBISState] {
-
-    }
-    file "service.properties" as serviceProperties
-    openBIS -- openBISState : Docker volume
-    openBIS -- serviceProperties: Docker bind mount
-
-}
-
-node client {
-    component [openBISClient] {
-
-    }
-
-    component [budibaseClient]{
-
-    }
-}
-
-
-
-openBISClient --> openbisHTTPOut
-budibaseClient --> budibaseHTTPOut
-
-@enduml
+```mermaid
+graph LR
+  subgraph Client
+    A[Budibase Client]
+    B[openBIS Client]
+  end
+  subgraph Server
+    subgraph "Docker Runtime"
+      subgraph "Docker Network"
+        Port80[":80"]
+        Port443[":443"]
+        Port10000[":10000"]
+        Port8443[":8443"]
+      end
+      C[Budibase] -->|GUI| Port80
+      C -->|openBIS API| Port443
+      D[openBIS] -->|GUI and API| Port443
+    end
+    D -.-|Docker Volume| F[openBIS State]
+    D -.-|Docker bind mount| G[service.properties]
+  end
+  A --> Port10000
+  B --> Port8443
+  Port80 -.- Port10000
+  Port443 -.- Port8443 
 ```
 
 The local openBIS instance as well as budibase run on the local docker container runtime and they communicate with each other through the docker network.

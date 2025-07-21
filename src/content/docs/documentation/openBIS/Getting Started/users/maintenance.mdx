@@ -4,20 +4,20 @@ sidebar:
   hidden: true
 ---
 
-import { Aside, Steps } from '@astrojs/starlight/components';
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
 
-<Breadcrumbs
-  linkTextFormat="sentence"
-  customizeListElements={[
-    { index: 0, remove: true },
-    { index: 1, remove: true },
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'Getting Started', link: '/documentation/openbis/getting-started' },
+    { label: 'Tips for Users', link: '/documentation/openbis/getting-started/users' },
+    { label: 'Tips for Maintenance work', link: '/documentation/openbis/getting-started/users/maintenance' },
   ]}
-  separatorAriaHidden={false}
 />
 
 As a user working in maintenance, you will be most likely working with the inventory section and maybe even the stock section.
+
+import { Aside } from '@astrojs/starlight/components';
 
 <Aside type="note">
   This section is still under construction.

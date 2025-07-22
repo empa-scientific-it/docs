@@ -13,7 +13,7 @@ As opposed to the traditional subscription model (in which readers have access t
 - **The green road** (self-archiving) describes the simultaneous or subsequent archiving of digital publications on an institutional or disciplinary OA document server. ([link](https://www.lib4ri.ch/green-open-access))
 - **The golden road** (publishing) describes the first publication of scientific articles in OA journals. There are more than 10.000 OA journals listed in the DOAJ and several thousands of OA journals are already covered by Web of Science and Scopus. These articles go through a quality control process in the form of a peer review. Most OA publishers charge publication fees which the author (author fees) or their institution (institutional fees) pays. There is a fund in place to support researchers at Eawag, Empa, PSI and WSL and also from various funders, e.g. at SNSF.
 
-For further information and links check the **[Lib4RI webpage for OA](https://www.lib4ri.ch/open-access)** (source) or contact Lib4RI for questions/help via **[email](mailto:openaccess@lib4ri.ch)**.
+For further information and links check the [Lib4RI webpage for OA](https://www.lib4ri.ch/open-access) (source) or contact Lib4RI for questions/help via [email](mailto:openaccess@lib4ri.ch).
 
 ## Policy at Empa
 
@@ -24,5 +24,5 @@ For further information and links check the **[Lib4RI webpage for OA](https://ww
 
 ## Support
 
-- Lib4RI offers a **training module on Open Access & Copyright [here](https://www.lib4ri.ch/searching-managing-scientific-information)** and other topics on managing scientific information.
-- Contact **Lib4RI for OA support via [e-mail](mailto:openaccess@lib4ri.ch)**.
+- Lib4RI offers a training module on Open Access & Copyright [here](https://www.lib4ri.ch/searching-managing-scientific-information) and other topics on managing scientific information.
+- Contact Lib4RI for OA support via [e-mail](mailto:openaccess@lib4ri.ch).

@@ -9,13 +9,13 @@ You can get in touch with us in two ways:
 
 The table below gives you an overview where to find support for our different areas of expertise.
 
-| Topic                                      | Find support at                                                         |
-| ------------------------------------------ | ----------------------------------------------------------------------- |
-| OpenBIS                                    | [openBIS support page](/research-data-management/openbis/support)                            |
-| Data Management Plan (DMP)                 | [DMP support](/research-data-management/data_management_plan#dmp-templates-and-support)      |
-| Open Access (OA)                           | [OA support](/research-data-management/open_access#support)                                  |
-| Compute                                    | [`compute@empa.ch`](mailto:compute@empa.ch)                             |
-| Generic technical issue or support request | [`scientificit@empa.ch`](mailto:scientificit@empa.ch)                   |
+| Topic                                      | Find support at                                                                                   |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| OpenBIS                                    | [openBIS support page](/documentation/openbis/getting-started/support/)                           |
+| Data Management Plan (DMP)                 | [DMP support](/services/research-data-management/data_management_plan/#dmp-templates-and-support) |
+| Open Access (OA)                           | [OA support](/services/research-data-management/open_access/#support)                             |
+| Compute                                    | [`compute@empa.ch`](mailto:compute@empa.ch)                                                       |
+| Generic technical issue or support request | [`scientificit@empa.ch`](mailto:scientificit@empa.ch)                                             |
 
 Sending an email to any of the addresses above will open a new support ticket.
 Therefore, you should contact us via email if you have a technical issue or an idea clear enough about the problem you are facing.

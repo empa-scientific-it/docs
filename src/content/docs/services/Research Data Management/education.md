@@ -19,7 +19,7 @@ If you have any question please contact [Matthias Roesslein](mailto:matthias.roe
 ## openBIS training
 
 At the beginning of every month, usually on a Tuesday, you can attend these trainings from **Matthias Rösslein**.
-You can contact him via **[e-mail](mailto:matthias.roesslein@empa.ch)** for more information (invitation is sent to all instance admins for distribution).
+You can contact him via [e-mail](mailto:matthias.roesslein@empa.ch) for more information (invitation is sent to all instance admins for distribution).
 
 ### Material
 

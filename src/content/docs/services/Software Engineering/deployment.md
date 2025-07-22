@@ -16,13 +16,7 @@ We have experience with a wide range of technologies, including:
 - Various databases ([MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), [MongoDB](https://www.mongodb.com/), etc.)
 - Web servers ([Apache](https://apache.org/), [Nginx](https://nginx.org/en/), etc.)
 - [AiiDA](https://www.aiida.net/) and [AiiDAlab](https://www.aiidalab.net/)
-- [openBIS](./openbis)
-- [Binder](https://mybinder.org/)
-
-### Platforms
-
-- Linux ([Ubuntu](https://ubuntu.com/), [CentOS](https://www.centos.org/), etc.)
-- [Windows](https://www.microsoft.com/en-us/windows)
+- [openBIS](/documentation/openbis/)
 
 ### Deployment
 
@@ -34,12 +28,12 @@ We have experience with a wide range of technologies, including:
 
 Typically, our deliverables are the deployed software with the deployment scripts supported by documentation.
 If needed, we can also provide you with the server infrastructure.
-See more on that in the [Compute section](/services/compute/).
+See more on that in the [Compute](/services/compute/) section.
 
 ## No further support policy
 
 Due to the limited resources, we cannot provide support for the deployed software.
-Once deployed and delivered by us, it is the responsibility of the user to keep it alive and running.
+Once deployed and delivered by us, it is the **responsibility of the user** to keep it alive and running.
 We can, however, help you with wiping the server and redeploying the software from scratch, if needed.
 
 ## Contact

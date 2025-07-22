@@ -14,7 +14,7 @@ User environments are SquashFS files that store a compressed directory tree cont
 
 Each environment contains a software stack, comprised of compilers, libraries, tools and scientific applications, built using [Spack](https://spack.io/).
 
-To learn more about uenv and how to run them, please refer to the [official documentation](https://confluence.cscs.ch/spaces/KB/pages/701726829/uenv+user+environments) by CSCS.
+To learn more about `uenv` and how to run them, please refer to the [official documentation](https://docs.cscs.ch/build-install/uenv/) by CSCS.
 
 This recipe will focus on building a custom user environment either locally or via CSCS CI/CD.
 Either way, a user environment is built from a set of **recipes** (YAML files), that define the compilers and software packages to be installed, along with configuration of modules and environment scripts the environment will provide to users.
@@ -159,6 +159,5 @@ Using `uenv build` command.
 ## Additional Resources
 
 - [Empa Spack repository](https://github.com/empa-scientific-it/empa-spack)
-- [Uenv official documentation](https://confluence.cscs.ch/spaces/KB/pages/701726829/uenv+user+environments)
 - [Stackinator documentation](https://eth-cscs.github.io/stackinator)
 - [Alps Uenv recipes](https://github.com/eth-cscs/alps-uenv)

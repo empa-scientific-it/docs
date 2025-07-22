@@ -23,7 +23,7 @@ If want us to have a closer look at your project, you can book a slot in our [of
 
 ## Internal developments
 
-We develop and maintain a number of open-source packages in python as well as in other languages.
+We develop and maintain a number of open-source packages in various languages.
 The following list is not exhaustive, so don't forget to check our repositories for the latest releases.
 
 ### General-purpose tools

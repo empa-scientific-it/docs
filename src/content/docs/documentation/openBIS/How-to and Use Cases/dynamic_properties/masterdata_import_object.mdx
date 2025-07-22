@@ -5,6 +5,9 @@ sidebar:
 ---
 
 import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/how-to-and-use-cases/dynamic_properties" />
 
 <CustomBreadcrumbs
   crumbs={[
@@ -24,7 +27,7 @@ In the Admin Interface, click on the top section `Tools` and there on the left c
 
 ![Dynamic property plugin](src/assets/openBIS/Bild/Dynamic_property_script_overview.png)
 
-Below you can find the complete script of the picture above added in the Script section (another example of a dynamic property plugin script is here [Dynamic property: Get property value of objects](./property_object.md)).
+Below you can find the complete script of the picture above added in the Script section (another example of a dynamic property plugin script is here [Dynamic property: Get property value of objects](/documentation/openbis/how-to-and-use-cases/dynamic_properties/property_object)).
 The script below in the function calculate() reads the value of the property `MANUFACTURER_NAME` of the object's parent and writes this value into the object's property where this dynamic property plugin script is attached to. If you would like to change what value is taken from the parent then you only have to change the function calculate() and there you type in the correct name of the property instead of `MANUFACTURER_NAME`.
 ```python
 from ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.update import SampleUpdate;

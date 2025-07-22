@@ -6,6 +6,9 @@ sidebar:
 
 import { Aside } from '@astrojs/starlight/components';
 import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/empa-specific/for_admins" />
 
 <CustomBreadcrumbs
   crumbs={[
@@ -65,7 +68,7 @@ If these conditions are met, follow these steps:
   ![selected group](src/assets/openBIS/img/selected_group.png)
 
   On the right hand side, you see which users belong to the group so far.
-  _For your information: On the left side in the bottom box called `Managers` the instance admins of your openBIS are listed, so they have the right to add users here on the right side (Managers are added by ICT when a new instance admin is requested via [support forms](../../Support.md))_
+  _For your information: On the left side in the bottom box called `Managers` the instance admins of your openBIS are listed, so they have the right to add users here on the right side (Managers are added by ICT when a new instance admin is requested via [support forms](/documentation/openbis/getting-started/support/))_.
 
 1.  To add a new person to the selected group, press `Hinzufügen...`.
     A window will open where you can search for the user to add.
@@ -96,7 +99,7 @@ If these conditions are met, follow these steps:
 
 1.  After up to 24 hours, your user will be able to login to your openBIS instance with their Empa credentials.
 
-1. Ask the user to try and login. If the login fails, make sure at least 24 hours elapsed since you added them. If this is the case, use the [support form for bugs](../../Support.md) or contact us via [e-mail](mailto:openbis-support@empa.ch).
+1. Ask the user to try and login. If the login fails, make sure at least 24 hours elapsed since you added them. If this is the case, use the [support form for bugs](/documentation/openbis/getting-started/support/) or contact us via [e-mail](mailto:openbis-support@empa.ch).
 
 ### Removing an existing user
 

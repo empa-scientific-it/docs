@@ -5,6 +5,9 @@ sidebar:
 ---
 
 import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/how-to-and-use-cases/programming" />
 
 <CustomBreadcrumbs
   crumbs={[
@@ -191,7 +194,7 @@ When you are done, browse to budibase and then open your app. You will find the 
 
 ##### OpenBIS API
 
-Now, before we modify the app, we need a brief side note on the openBIS API[^1] . This is a way for us to perform operations on an openBIS instance *remotely* and *programmatically*: creating and retrieving objects, creating collections, adding metadata etc. Thanks to the API,  we can do everything you would do through the ELN UI interface -- and more -- without a single mouse click, by calling the appropriate methods offered by the API. In the case of the openBIS API, we can use [Java or Javasript](https://openbis.readthedocs.io/en/latest/software-developer-documentation/apis/java-javascript-v3-api.html#openBISV3API-TheJavascriptAPI), or [pyBIS](https://openbis.readthedocs.io/en/latest/software-developer-documentation/apis/python-v3-api.html) to perform these operations. However, because we are working inside of budibase, we cannot write code in any of these languages. Budibase does however support [REST APIS](https://docs.budibase.com/docs/rest) as does openBIS through the JSON-RPC API.
+Now, before we modify the app, we need a brief side note on the openBIS API[^1] . This is a way for us to perform operations on an openBIS instance *remotely* and *programmatically*: creating and retrieving objects, creating collections, adding metadata etc. Thanks to the API,  we can do everything you would do through the ELN UI interface -- and more -- without a single mouse click, by calling the appropriate methods offered by the API. In the case of the openBIS API, we can use [Java or Javasript](https://openbis.readthedocs.io/en/latest/software-developer-documentation/apis/java-javascript-v3-api.html#openBISV3API-TheJavascriptAPI), or [pyBIS](https://openbis.readthedocs.io/en/latest/software-developer-documentation/apis/python-v3-api.html) to perform these operations. However, because we are working inside of budibase, we cannot write code in any of these languages. Budibase does however support [REST APIs](https://docs.budibase.com/docs/rest) as does openBIS through the JSON-RPC API.
 
 A REST API superficially resembles a normal URL you would use to open a webpage and uses the same principles. The client creates an HTTP request and passes additional information needed to perform the desired operation either through the URL itself the *query parameters*, the *header* of the request or the *body* of the request, as explained in detail [here](https://idratherbewriting.com/learnapidoc/docapis_doc_parameters.html).
 

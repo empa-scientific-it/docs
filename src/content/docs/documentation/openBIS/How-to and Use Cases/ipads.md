@@ -38,7 +38,7 @@ At present the followoing ipad versions are known to be in usage at Empa labs:
 
 1. If you need a **keyboard or screen foils**, you can check the internet for options. This will be the lab's responsibility.
 
-1. **Create shortcuts** from webpages on the home screen for easy access, check figure 3 below: Shortcuts for [openBIS ELN UI of your lab](../5_Pages_for_Labs/index.md); the Empa Outlook webapp; Polybox; etc. 
+1. **Create shortcuts** from webpages on the home screen for easy access, check figure 3 below: Shortcuts for [openBIS ELN UI of your lab](/documentation/openbis/pages_for_labs/); the Empa Outlook webapp; Polybox; etc. 
 
   ![Some Explanation on the homescreem](src/assets/openBIS/Bild/Homescreen_Overview.png)
 
@@ -49,9 +49,9 @@ At present the followoing ipad versions are known to be in usage at Empa labs:
 
 ### Set up Wi-Fi
 
-1. **Go to the settings** [view figure 3, point 1](##starting-information) to access Wi-Fi settings.
+1. **Go to the settings** [view figure 3, point 1](#starting-information) to access Wi-Fi settings.
 1. **Create a Wi-Fi login** depending on the number of ipad users:
-   - **Single user**: Use your empa credentials to log in (firstname.surname@empa.ch) with
+   - **Single user**: Use your empa credentials to log in (_firstname.surname @ empa.ch_) with
      - Eduroam login: keeps you always logged in
      - Ee-guest login: You have only timely limited access
    - **Multi-user**: You can sponsor a guest account, view instructions [here](https://www.empa.ch/group/s604/neues-wlan?inheritRedirect=true). 
@@ -85,9 +85,9 @@ If you want to download apps, you have to create an **[Apple ID](https://www.mac
 
 - Use the **apple pencil** to 
   - fill out the textboxes with handwriting
-  - use the iPad like a paper notebook, where you can scribbling, sketching, mind mapping, brainstorming. Afterwards, you can upload these files as [attachment to your experiments](../2_Empa_Documentation/Data_Upload/index.md) in openBIS and they won't get lost.
+  - use the iPad like a paper notebook, where you can scribbling, sketching, mind mapping, brainstorming. Afterwards, you can upload these files as [attachment to your experiments](/documentation/openbis/empa-specific/data_upload) in openBIS and they won't get lost.
 - Take pictures with **ipad camera** (e.g. comes in very handy with the notes on your fume hood)
   - directly in openBIS via the [data type _Multiline Varchar_](https://openbis.readthedocs.io/en/latest/uncategorized/register-master-data-via-the-admin-interface.html#data-types-available-in-openbis).
-  - upload them to openBIS as [attachment](../2_Empa_Documentation/Data_Upload/index.md).
-- Use a **spreadsheet editor like [Collabora Office](https://www.collaboraoffice.com/solutions/collabora-office-android-ios/)** to make calculations like in Excel or to update tables in openBIS (e.g. collections) via XLS Batch [register](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-several-collections/) or [update](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-update-entries-in-a-collection)
-- You can [scan barcodes/QR from mobile devices like ipads](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/barcodes.html#scan-barcodes-from-mobile-devices) and manage and track your chemical or material inventory online. Check our documentation about [label printers for bar-/QR-codes](./label_printer.md).
+  - upload them to openBIS as [attachment](/documentation/openbis/empa-specific/data_upload).
+- Use a **spreadsheet editor like [Collabora Office](https://www.collaboraoffice.com/solutions/collabora-office-android-ios/)** to make calculations like in Excel or to update tables in openBIS (e.g. collections) via XLS Batch [register](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-several-collections/) or [update](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-update-entries-in-a-collection).
+- You can [scan barcodes/QR from mobile devices like ipads](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/barcodes.html#scan-barcodes-from-mobile-devices) and manage and track your chemical or material inventory online. Check our documentation about [label printers for bar-/QR-codes](/documentation/openbis/how-to-and-use-cases/label_printer/).

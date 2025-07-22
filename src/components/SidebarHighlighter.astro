@@ -1,0 +1,28 @@
+---
+export interface Props {
+  targetPath: string;
+}
+
+const { targetPath } = Astro.props;
+---
+
+<script define:vars={{ targetPath }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebarLinks = document.querySelectorAll('.sidebar-content a');
+
+    sidebarLinks.forEach(link => {
+      if (link.href.includes(targetPath)) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+
+        // Expand parent sections
+        let parent = link.closest('[data-collapsible]');
+        while (parent) {
+          const button = parent.querySelector('button[aria-expanded="false"]');
+          if (button) button.click();
+          parent = parent.parentElement?.closest('[data-collapsible]');
+        }
+      }
+    });
+  });
+</script>

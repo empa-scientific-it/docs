@@ -10,7 +10,7 @@ sidebar:
 * [Overview](https://openbis.readthedocs.io/en/latest/)
 * [User documentation at ETH](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/index.html)
   - How to open project and experiment folders in the [Lab Notebook section](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html) of ELN UI
-  - How to use the [inventory section](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#) for [Excel like tables](../3_Use_Cases_of_labs/Table_Excel_into_openBIS.md) of chemicals and samples and how to [automatically register](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-a-collection) them.
+  - How to use the [inventory section](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#) for [Excel like tables](/documentation/openbis/how-to-and-use-cases/excel_to_openbis/) of chemicals and samples and how to [automatically register](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-a-collection) them.
 * [Instance Admin (or Admin  User) documentation at ETH](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/index.html)
 * [Archiving](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-archiving.html)
 * [Export to FAIR data repository Zenodo](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-export.html#export-to-zenodo)
@@ -26,18 +26,9 @@ import { Aside } from '@astrojs/starlight/components';
 ## What is different for Empa?
 openBIS for Empa runs on ETH servers and is maintained by ETH. We profit from ETH support and their release updates, but due to this we have some restrictions and differencies to the ETH documentation:
 
-- Login for Empa users and instance admins is different, view [here](../1_Getting_Started/01_Login.md). 
-- User registration for Empa employees is different, view [here](./For_Admins/add_user.md). 
-- Data upload for large data sets is different, view [here](./Data_Upload/uploading_large_data.md).
+- Login for Empa users and instance admins is different, view [here](/documentation/openbis/getting-started/login/). 
+- User registration for Empa employees is different, view [here](/documentation/openbis/empa-specific/for_admins/add_user). 
+- Data upload for large data sets is different, view [here](/documentation/openbis/empa-specific/data_upload/uploading_large_data/).
 - [JupyterHub](https://openbis.readthedocs.io/en/latest/user-documentation/advance-features/jupiterhub-for-openbis.html#) is already available in all Empa openBIS instances and you do not need to generally install it for your instance.
 - [Pybis](https://pypi.org/project/PyBIS/) logins with username and password currently only work for instance admins. Since the release 20.10.6, login using a personal access token works for all types of users, so we advice using this method to authenticate your user in scripts.
 - [Custom import](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#custom-imports) is disabled because we currently do not have [custom dropbox plugins](https://openbis.readthedocs.io/en/latest/software-developer-documentation/server-side-extensions/dss-dropboxes.html) on any instance.
-
-
-
-
-
-
-
-
-

@@ -5,6 +5,9 @@ sidebar:
 ---
 
 import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/empa-specific/data_upload" />
 
 <CustomBreadcrumbs
   crumbs={[
@@ -26,13 +29,13 @@ For example you can programmatically create new openBIS entries and datasets whe
 
 Your default openBIS installation at Empa provides one pre-configured dropbox plugin called the **ELN-LIMS dropbox**.
 This default plugin allows you to attach large datasets to an existing openBIS entity (e.g. collection, object etc.) by uploading the files to a lab related folder on Empa's `N:` drive.
-For more information on the ELN-LIMS dropbox plugin, check our documentation [here](./uploading_large_data.md).
+For more information on the ELN-LIMS dropbox plugin, check our documentation [here](/documentation/openbis/empa-specific/data_upload/uploading_large_data).
 
 ### How to use dropbox plugins?
 
 You need to upload the data you want to transfer to openBIS to a specific folder on the `N:` drive. Your instance admin can inform you about the available custom plugins and how to use them.
 
-To learn how to use the existing default **ELN-LIMS dropbox** plugin , check our documentation [here](./uploading_large_data.md).
+To learn how to use the existing default **ELN-LIMS dropbox** plugin , check our documentation [here](/documentation/openbis/empa-specific/data_upload/uploading_large_data).
 
 ### Monitoring plugins
 
@@ -82,6 +85,4 @@ Before developing a new plugin make sure all users of the plugin agree on a meta
 - The repository **must** contain all the files/configuration to test the plugin.
 - A template for the repository will soon be provided on Empa GitLab.
   
-If you need any assistance in developing and deploying a dropbox plugin, check our [support page](../../Support.md).
-
-
+If you need any assistance in developing and deploying a dropbox plugin, check our [support page](/documentation/openbis/getting-started/support/).

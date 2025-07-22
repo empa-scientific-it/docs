@@ -17,4 +17,4 @@ Checkout the **openBIS forum [here](https://community.openbis.ch/categories)** t
 - [Community activities](https://community.openbis.ch/c/community-activities/16) to find out about meetings and events of the international openBIS community.
 
 ## Gitlab group at Empa
-Check our [Gitlab group]((https://gitlab.empa.ch/openbis-tools)) for **tools and example code for openBIS**.
+Check our [Gitlab group](https://gitlab.empa.ch/openbis-tools) for **tools and example code for openBIS**.

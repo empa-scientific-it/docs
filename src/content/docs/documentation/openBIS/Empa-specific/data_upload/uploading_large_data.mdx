@@ -5,6 +5,9 @@ sidebar:
 ---
 
 import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/empa-specific/data_upload" />
 
 <CustomBreadcrumbs
   crumbs={[
@@ -37,11 +40,11 @@ To learn how to upload large data to openBIS, which is called `data upload via (
 
     ![groups](src/assets/openBIS/Bild/groups.png)
 
-1. Open the [ELN UI browser of your lab](../../5_Pages_for_Labs/index.md), choose the right [login](../../1_Getting_Started/01_Login.md), and navigate to the entity ([object or experiment/collection](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html)) where you want to upload data. In this example, we want to upload a file to the collection `Creep measurements` of Maurice Biot's lab notebook.
+1. Open the [ELN UI browser of your lab](/documentation/openbis/pages_for_labs/), choose the right [login](/documentation/openbis/getting-started/login/), and navigate to the entity ([object or experiment/collection](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html)) where you want to upload data. In this example, we want to upload a file to the collection `Creep measurements` of Maurice Biot's lab notebook.
 
     ![entity page](src/assets/openBIS/Bild/entity_page.png)
 
-1. Follow the **[instructions in this link](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-dropbox)** to create the folder connected to the upload place in openBIS (e.g. collection `Creep measurements`) and if needed the marker file with the correct naming (in case of the marker upload option). When following the instructions, **be aware that ETH documentation calls the folder in N:drive (e.g. `OB-502AIM` or `OB-L207-Abt207`) the _eln-lims-dropbox_ folder**. Depending on the upload version you will use on `N:` drive in the folder `OB-LXXX-Groupname` (e.g. `OB-502AIM` or `OB-L207-Abt207`) the already existing folders `auto` or `marker`:
+1. Follow the [instructions in this link](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-dropbox) to create the folder connected to the upload place in openBIS (e.g. collection `Creep measurements`) and if needed the marker file with the correct naming (in case of the marker upload option). When following the instructions, **be aware that ETH documentation calls the folder in N:drive (e.g. `OB-502AIM` or `OB-L207-Abt207`) the _eln-lims-dropbox_ folder**. Depending on the upload version you will use on `N:` drive in the folder `OB-LXXX-Groupname` (e.g. `OB-502AIM` or `OB-L207-Abt207`) the already existing folders `auto` or `marker`:
 
     ![auto folder](src/assets/openBIS/Bild/auto_folder.png)
 

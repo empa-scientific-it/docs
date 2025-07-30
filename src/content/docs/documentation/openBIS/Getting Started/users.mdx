@@ -2,27 +2,128 @@
 title: Tips for Users
 ---
 
-Dependending on the way you are registered to your openBIS, you have [default rights to some openBIS folders](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#default-roles-assigned-in-eln). 
-The instance admin of your openBIS manages your user rights and therefore your rights can diverge from the default. 
+import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
+
+Dependending on the way you are registered to your openBIS, you have [default rights to some openBIS folders](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#default-roles-assigned-in-eln).
+The instance admin of your openBIS manages your user rights and therefore your rights can diverge from the default.
 Contact your instance admin if you need help with your rights in openBIS or you can contact our openBIS support via [email](mailto:openbis-support@empa.ch).
 
 - Check the ETH documentation on these topics:
   - How to create projects and experiments in the openBIS [Lab Notebook](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html)
-  - How to [share your projects with others](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#share-lab-notebooks-and-projects). Please be aware that **you can only add Empa employees which have access to your openBIS and that the User Id is the e-mail adress written with "_AT_" instead of @, for example: anusch.bachofner_AT_empa.ch**
+  - How to [share your projects with others](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#share-lab-notebooks-and-projects). Please be aware that **you can only add Empa employees which have access to your openBIS** and that the User Id is the e-mail adress written with `AT` instead of `@`, for example: `anusch.bachofner_AT_empa.ch`
 - Check our Empa specific documentation:
-  - usage of [ipads with openBIS](/documentation/openbis/how-to-and-use-cases/ipads/) in the section with use cases from labs
+  - usage of [iPads with openBIS](/documentation/openbis/how-to-and-use-cases/ipads/) in the section with use cases from labs
 
-## Dive deeper
+## Experiments
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+### OpenBIS the ELN-LIMS
 
-<CardGrid>
-  <Card
-    title="<a href='/documentation/openbis/getting-started/users/experiments'>Tips for Experiments</a>"
-    customIcon="lucide:folder-tree"
-  />
-  <Card
-    title="<a href='/documentation/openbis/getting-started/users/maintenance/'>Tips for Maintenance work</a>"
-    customIcon="lucide:cpu"
-  />
-</CardGrid>
+As a user working with experiments, you will be most likely working with the Lab Notebook section and using the inventory to reference sample and protocols/SOP's.
+
+### Workflow for laboratory experiments
+
+A typical workflow from an experimentalist may be divided into the following steps:
+
+- Acquisition of information
+- Planning of experiments - formulation of hypothesis
+- Preparing for experiments and lab work
+- Analysis of products from experimental work
+- Analysis and interpretation of data derived from analysis of products and processes
+- Publishing and Archiving
+
+#### Before the actual experimental work
+
+Two [Object types](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html) are present in every openBIS instance.
+They are called [Experimental Step and Entry](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#register-experimental-steps).
+The Entry type looks like a Word document and has similar features.
+Copy paste from word files in to an Entry does work, as long as it doesn't contain pictures.
+[Embed images](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#embed-images-in-text-fields) using drag and drop, or the insert image feature from the text editor.
+
+As an example, you could create a [Collection or Default Experiment](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#register-experiments) to register a group of entries with different hypothesis and links to papers etc.
+To test this hypothesis, you create experimental series for hypothesis testing.
+You can link the corresponding Entry with [parent-children relationships](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#add-parents-and-children-to-experimental-steps) to the associated experiments and later you will be able to trace back the reasons of the lab work.
+
+#### Working with protocols and templates to prepare for experimental work
+
+[Protocols](https://openbis.readthedocs.io/en/latest/user-documentation/advance-features/openbis-data-modelling.html#protocols) are used as a general term to describe a workflow that always stays the same within some experimental series, e.g. Standard Operation Protocol (SOP), Method.
+OpenBIS Protocols are connected to the Experimental Steps via [Parent-Child relations](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#add-parents-and-children-to-experimental-steps).
+[Templates](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/create-templates-for-objects.html) help to prefill Experimental Steps with values that stay always the same throughout a series of experiments.
+
+Protocols and templates have to be prepared before the Experimental work.
+Protocols need [enabling in the settings](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/customise-inventory-of-protocols.html#enable-protocols-in-settings).
+Templates are registered directly in the settings, therefore this has to be done by an Admin.
+Otherwise, the instance admin should give to a user the Admin role for the space settings - see [openBIS roles](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#openbis-roles) for help.
+Once the protocols and/or templates are prepared, experimental information needed for the practical work can be filled out.
+
+#### Experimental work
+
+Working with a [Electronic Lab Notebook (ELN)](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html) is very similar to working with a paper notebook.
+In the case of a paper notebook, the values to be used for an experiment would also be written down first, along with the chemicals/apparatus/methods etc. to be used.
+The same is prepared for an ELN, simply on the PC, with the help of protocols and templates.
+Then, when working in the lab, the actual values are added and experimental observations are listed.
+
+It's possible to work with openBIS on tablets and iPads.
+Scientific IT distributed already several of them amongst Empa labs and [provided a short starting guide](/documentation/openbis/how-to-and-use-cases/ipads/).
+If you are interested to get an iPad, contact your instance admin or contact us via [email](mailto:openbis-support@empa.ch).
+
+#### Analyzing data stored in openBIS
+
+Two [tools for data analysis](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/tools-for-analysis-of-data-stored-in-openbis.html) are available in openBIS:
+
+- [Jupyter](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/tools-for-analysis-of-data-stored-in-openbis.html#jupyter-notebooks) is directly implemented in openBIS and can be operated from the ELN UI.
+- To access the data with [MATLAB](https://sissource.ethz.ch/hluetcke/matlab-openbis), it has to be locally installed on your device but it's available from the [DSM Software shop](https://www.empa.ch/group/s601/scientific-applications?inheritRedirect=true) which is available on every Empa computer.
+
+Furthermore, it's possible to download all data from openBIS for external processing.
+Data and metadata can be [exported](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-export.html#export-to-file/).
+You can export the tables in openBIS by clicking on the button above of the table called `Export`.
+You can [browse entries by type](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#browse-entries-by-type) and export them by using the export button at the top of the table.
+Individual data files [attached](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-web-ui) to objects or collections are downloaded directly when clicked.
+
+#### Data evaluation and interpretation
+
+There are different features in openBIS to display the data that is recorded.
+Most of them are listed [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html):
+
+- Check out Parent-Child Relations from your objects using the [hierarchy graph](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#visualise-relationships).
+- Display your data in the [table](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#tables) using different filters and search options.
+- Group together objects from different sources in one table by using [advanced search options](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/search.html#advanced-search).
+- Use the [MATLAB toolbox](https://sissource.ethz.ch/hluetcke/matlab-openbis) or [Jupyter](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/tools-for-analysis-of-data-stored-in-openbis.html#jupyter-notebooks).
+- For external processing, use [Export data to file](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-export.html#export-to-file) to export all the metadata and/or data from objects, or use the export function that can be found on the top of every [table](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#tables), choosing only the relevant information.
+- Use [pyBIS](https://pypi.org/project/PyBIS/) to interact with openBIS.
+
+#### Publishing and archiving
+
+OpenBIS offers the function to directly [export to zenodo](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-export.html#export-to-zenodo).
+Zenodo is a [FAIR](https://about.zenodo.org/principles/) repository accepted by funding agencies to publish research data.
+Read more about Zenodo [here](https://about.zenodo.org/).
+
+Another nice feature of openBIS is the simple [archiving feature](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-archiving.html).
+Data can be easily stored, but also retrieved just with a click of the mouse.
+It only takes a few hours until the data is available again.
+
+## Maintenance
+
+As a user working in maintenance, you will be most likely working with the inventory section and maybe even the stock section.
+
+<Aside type="note">This section is still under construction.</Aside>
+
+### Managing Devices, Chemicals, and more
+
+Some ETH documentation about the set up of the openBIS [inventory](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html) with examples from life sciences.
+
+### Working with batch register and batch update
+
+Instructions from ETH about how to upload samples or chemicals from an Excel table to an openBIS collection using the [batch registration](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-a-collection).
+
+### Connections using Parent-Child Relations
+
+Explanations about the [parent child relationships in openBIS](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#add-parents-and-children-to-experimental-steps) from ETH.
+
+### History of Objects to follow changes
+
+openBIS is recording changes and deletion of objects.
+Check the documentation [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/history-overview.html#).
+
+### Using Storage Section
+
+Check the ETH documentation about the [management of sample storage in openBIS](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/managing-storage-of-samples.html#).

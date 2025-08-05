@@ -2,6 +2,7 @@
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import { LinkButton } from "@astrojs/starlight/components";
 import { getCollection, render } from "astro:content";
+import SidebarHighlighter from "@components/SidebarHighlighter.astro";
 
 export async function getStaticPaths() {
   const labs = await getCollection("labs");
@@ -15,6 +16,7 @@ const { lab } = Astro.props;
 const { Content } = await render(lab);
 ---
 
+<SidebarHighlighter targetPath="/documentation/openbis/labs" />
 <StarlightPage frontmatter={{ title: lab.data.title, tableOfContents: false }}>
   <Content />
   <div>

@@ -1,0 +1,34 @@
+---
+title: Dynamic Properties
+---
+
+## What are dynamic properties
+
+OpenBIS offers the [dynamic property](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/properties-handled-by-scripts.html#dynamic-properties) function, these are object (or collection) properties that are computed from other properties using a jython or a java function.
+
+## Computation model
+
+Dynamic properties are computed whenever other properties of an object are updated. The computation happens asynchronously, so if there is a high load on the openBIS instance it might take a while until the new value is calculated. There are some other pitfalls regarding the computation of properties, as mentioned by Juan Fuentes, the head developer of openBIS:
+
+> Dynamic properties are stored on the database as values so they don't need to get re-evaluated every time.
+> All dynamic properties of an object are 'scheduled' to be re-evaluated after any property of the object gets updated.
+> So if you update 1000 samples using a batch, all these get 'scheduled' and eventually will show correct values, but this is far from immediate.
+> If you update a single sample when the system is IDLE it may look instant because it gets updated the next second, but this can take minutes or hours depending how BUSY the system is.
+> Another thing to take in count is that updating the properties of a children object DOES NOT schedule the update of the parent automatically.
+
+If you want properties of parents to be updated at every calculation, you can check this [repository](https://gitlab.empa.ch/openbis-tools/abt207-dynamic-properties).
+
+A more robust alternative is to ask the instance owner (ETH SIS) to setup a [maintenance task](https://openbis.readthedocs.io/en/latest/system-admin-documentation/advanced-features/maintenance-tasks.html#MaintenanceTasks-DynamicPropertyEvaluationMaintenanceTask) on your instance called `DynamicPropertyEvaluationMaintenanceTask`. The task will run at regular intervals and update the values of all dynamic properties.
+
+## Use Cases
+
+import { CardGrid } from "@astrojs/starlight/components";
+import CustomCard from "@components/CustomCard.astro";
+
+<CardGrid>
+  <CustomCard title="<a href='/documentation/openbis/how-to-and-use-cases/dynamic_properties/masterdata_import_object'>Masterdata import to create objects including dynamic properties</a>" />
+  <CustomCard title="<a href='/documentation/openbis/how-to-and-use-cases/dynamic_properties/property_email'>Batch register e-mails with active link</a>" />
+  <CustomCard title="<a href='/documentation/openbis/how-to-and-use-cases/dynamic_properties/property_object'>Get value of a property in an object</a>" />
+  <CustomCard title="<a href='/documentation/openbis/how-to-and-use-cases/dynamic_properties/property_spreadsheet'>Read/write programmatically into spreadsheet</a>" />
+  <CustomCard title="<a href='/documentation/openbis/how-to-and-use-cases/dynamic_properties/table_attachment'>Add attachment to table in objects</a>" />
+</CardGrid>

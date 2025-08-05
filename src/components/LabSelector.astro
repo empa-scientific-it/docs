@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+const labs = await getCollection("labs");
+---
+
+<label for="labDropdown">Please, select your lab from the list:</label>
+<select
+  id="labDropdown"
+  name="labId"
+  onchange="if(this.value) window.location.href='/documentation/openbis/labs/' + this.value;"
+>
+  <option value="">-- Lab Number --</option>
+  {labs.map((lab) => <option value={lab.data.labId}>{lab.data.title}</option>)}
+</select>

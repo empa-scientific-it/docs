@@ -1,0 +1,88 @@
+---
+title: Dropbox plugins
+sidebar:
+  hidden: true
+---
+
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/empa-specific/data_upload" />
+
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'Empa-specific', link: '/documentation/openbis/empa-specific' },
+    { label: 'Data upload to openBIS', link: '/documentation/openbis/empa-specific/data_upload' },
+    { label: 'Dropbox plugins', link: '/documentation/openbis/empa-specific/data_upload/dropbox' },
+  ]}
+/>
+
+## User documentation
+
+### What is a dropbox plugin?
+
+It is an extension for openBIS that receives files uploaded to a folder on Empa's `N:` drive and processes the file by extracting metadata and creating openBIS entities with attached data.
+This process is frequently called **ETL** (Extract, Transform and Load).
+A dropbox plugin can be used to automate the data upload to openBIS. 
+For example you can programmatically create new openBIS entries and datasets when experimental data is uploaded to a specific shared folder on the `N:` drive.
+
+Your default openBIS installation at Empa provides one pre-configured dropbox plugin called the **ELN-LIMS dropbox**.
+This default plugin allows you to attach large datasets to an existing openBIS entity (e.g. collection, object etc.) by uploading the files to a lab related folder on Empa's `N:` drive.
+For more information on the ELN-LIMS dropbox plugin, check our documentation [here](/documentation/openbis/empa-specific/data_upload/uploading_large_data).
+
+### How to use dropbox plugins?
+
+You need to upload the data you want to transfer to openBIS to a specific folder on the `N:` drive. Your instance admin can inform you about the available custom plugins and how to use them.
+
+To learn how to use the existing default **ELN-LIMS dropbox** plugin , check our documentation [here](/documentation/openbis/empa-specific/data_upload/uploading_large_data).
+
+### Monitoring plugins
+
+To see the status of a running dropbox plugin, you can use the dropbox monitor tool in the openBIS ELN interface. Check the ETH documentation [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#dropbox-monitor).
+
+## Developer documentation
+
+The following section provides information for instance admins and developers who want to write new dropbox plugins for their openBIS instance or want to modify existing custom plugins.
+
+### Prerequisites
+
+The development of dropbox plugins requires a good knowledge of openBIS as well as clarity about the desired metadata structure.
+Before developing a new plugin make sure all users of the plugin agree on a metadata schema. This means they should all agree to use the same property, objects, projects and collection structures.
+
+
+### Technical information
+
+- Dropbox plugins are Jython (based on [python 2.7](https://www.jython.org/)) or Java server-side scripts that are deployed on the openBIS server. In the case of Empa, **SIS need to install the plugin on the openBIS servers hosted at ETH**.
+- A plugin watches a specific folder on Empa's `N:` drive for data. When new data appears, the plugin is triggered. The plugin has access to the uploaded data and to the openBIS server. In the implementation of the plugin, the developer can create any openBIS entity (Spaces, Project, Collections, Objects) and datasets. It is also possible to extract metadata from the uploaded file before registering the file as a new dataset in openBIS.
+- The plugin must be in a python script. The script must contain **at least** a function called `process`:
+  
+    ```python
+    def process(transaction):
+        #do your work here
+    ```
+    View ETH documentation [here](https://openbis.readthedocs.io/en/latest/software-developer-documentation/server-side-extensions/dss-dropboxes.html#jython-dropboxes) for some simple examples.
+    The `transaction` object is an object of type [IDataSetRegistrationTransactionV2](https://openbis.ch/javadoc/20.10.x/javadoc-dropbox-api/ch/systemsx/cisd/etlserver/registrator/api/v2/IDataSetRegistrationTransactionV2.html). 
+    Whenever the script finishes, the openBIS datastore server (DSS) tries to automatically commit the transaction and all the work performed in the plugin is stored in openBIS.
+
+- Dropbox plugins are **transactional**:
+  
+     This means all the work (creation of entities and datasets) performed in the plugin is committed to openBIS in one *transaction*. If any steps failed, the server is rolled back to the state before the plugin was triggered. This is in contrast to uploads using Pybis scripts and the openBIS V3 API. Transactional behavior ensures a cleaner state of the openBIS instance and should be preferred whenever possible.
+
+- An example of a fully configured jython dropbox plugin at Empa in lab 402 is [here](https://gitlab.empa.ch/openbis-tools/jython-dropbox-402). Check also the README file [here](https://gitlab.empa.ch/openbis-tools/jython-dropbox-402/-/blob/master/README.md?ref_type=heads).
+
+### Deployment process
+
+- Plugins developed by Empa are deployed by ETH from the following [ETH GitLab group](https://sissource.ethz.ch/openbis/openbis-private/empa). The group contains one repository per server (named after lab number).
+- To create a new plugin, first contact us via [email](mailto:openbis-support@empa.ch). We will ask ETH to create a new repository and to give you access.
+- The repository on the ETH Gitlab **must** be mirrored in our Empa internal GitLab. An example can be found [here](https://gitlab.empa.ch/openbis-tools/jython-dropbox-402).
+- The plugin code **must** be in a directory named `deployed/core-plugins/<plugin name>/1/dss/drop-boxes/<plugin name>` where `<plugin name>` is the name of the dropbox plugin.
+
+
+### Development process
+
+- The plugins are first tested **locally** using docker containers. To reproduce the same schema/data/metadata as the **production** instance, you can use our *instance-io* tool to export the information from your instance as a JSON file and import in the test instance. You can find our tool [here](https://gitlab.empa.ch/openbis-tools/instance-io), where we also provide a short documentation. 
+- The repository **must** contain all the files/configuration to test the plugin.
+- A template for the repository will soon be provided on Empa GitLab.
+  
+If you need any assistance in developing and deploying a dropbox plugin, check our [support page](/documentation/openbis/getting-started/support/).

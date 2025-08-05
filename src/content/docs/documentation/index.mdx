@@ -1,0 +1,26 @@
+---
+title: Documentation
+sidebar:
+  label: Overview
+  order: 0
+---
+
+We are continuously working on improving our documentation pages.
+
+If you have any questions or feedback, please feel free to [reach out](mailto:scientificit@empa.ch).
+
+## Documentation sections
+
+import { CardGrid } from "@astrojs/starlight/components";
+import CustomCard from "@components/CustomCard.astro";
+
+<CardGrid>
+  <CustomCard
+    title="<a href='/documentation/openbis'>openBIS</a>"
+    customIcon="lucide:folder-tree"
+  />
+  <CustomCard
+    title="<a href='/documentation/cscs/build_docker_image'>CSCS</a>"
+    customIcon="lucide:cpu"
+  />
+</CardGrid>

@@ -1,0 +1,169 @@
+---
+title: Build and run a Docker image
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+CSCS provides and maintains the [Container Engine](https://docs.cscs.ch/software/container-engine/) (CE), a set of tools to help users run containerized applications exploiting all the features of the underlying hardware.
+
+<Aside type="note">
+The Container Engine toolset is designed to enable computing jobs to seamlessly run inside Linux application containers, thus providing support for containerized user environments.
+</Aside>
+
+This how-to will walk through all the steps needed to configure the CE, create a Dockerfile, build and export the image, and finally run the image on a computing node. We will use PyTorch as a working example, starting from NVIDIA images catalog (NGC).
+
+<Aside type="caution">
+To be able to pull images from NGC at the `nvcr.io` URL, you need a valid API key. You can get one by creating an account (or logging in to an existing one), going to "Setup", and generating a new API key.
+Once you have that, create a new file `~/.config/enroot/.credentials` and paste there the following content
+```
+machine nvcr.io login $oauthtoken password <your-API-key>
+```
+Don't forget to replace `your-API-key` with the key you just created.
+</Aside>
+
+## Preparing the Dockerfile
+
+<Steps>
+
+1. Move to a directory of your choice (preferably somewhere in your `$SCRATCH` folder) and create the following file name `Dockerfile`
+
+    ```dockerfile
+    ARG BASE_TAG=25.01-py3
+    FROM nvcr.io/nvidia/pytorch:$BASE_TAG
+
+    ENV DEBIAN_FRONTEND=noninteractive
+
+    RUN apt-get update && apt-get install -y python3-venv && apt-get clean && rm -rf /var/lib/apt/lists/*
+    ```
+
+2. Before we can build the image from that Dockerfile, we need to configure the storage locations of Podman, the tool used to build a Docker image. Create the file `~/.config/containers/storage.conf` with this content:
+
+    ```toml
+    [storage]
+    driver = "overlay"
+    runroot = "/dev/shm/$USER/runroot"
+    graphroot = "/dev/shm/$USER/root"
+
+    [storage.options.overlay]
+    mount_program = "/usr/bin/fuse-overlayfs-1.13"
+    ```
+
+</Steps>
+
+## Building the image
+Since it might take some time, we are going to build the image on a computing node.
+
+<Steps>
+
+1. Ask an interactive reservation
+
+    ```bash
+    srun --account <your-account> --pty bash
+    ```
+
+    Where you need to replace `your-account` with your *actual* project's name (or account).
+
+2. Once we got our allocation, we can move to the folder where we created the Dockerfile and run
+
+    ```bash
+    podman build -t pytorch:25.01-py3 .
+    ```
+
+    It might take some time depending on the complexity of the Dockerfile. In this case, it should be fairly quick and take only around 10 minutes or so.
+
+
+3. Before our allocation ends, we **must** export the image built somewhere on disk. Otherwise, since the building happened in the compute node's memory, once our allocations expires, we'll lose everything. We can export the image just built with:
+
+    ```bash
+    enroot import -x mount -o pytorch-25.01-py3.sqsh podman://pytorch:25.01-py3-venv
+    ```
+
+    The command above will create the file `pytorch-25.01-py3.sqsh` in the **current working directory**.
+
+</Steps>
+
+## Running the container
+One last step before we're able to run a container from the image we built. We need to create an Environment Definition File (EDF).
+Such file tells the CE where to look for the image to run, which folders to mount inside the container, and [many other options](https://docs.cscs.ch/software/container-engine/edf/) we might need/want to customize.
+For example, we might want to set some environment variables that we need inside the container upon it starts.
+
+<Steps>
+
+1. Create the following file: `~/.edf/pytorch-25.01-py3.toml` (and create the `~/.edf` directory if it doesn't exist).
+
+    ```toml
+    image = "/path/to/your/pytorch-25.01-py3.sqsh"  # Adjust this path
+    mounts = ["/capstor", "/users"]
+    workdir = "/capstor/scratch/cscs/<username>"    # Change this with your username
+    writable = true                                 # This is important if we want to be able to modify the container while running it
+
+    [annotations]
+    com.hooks.aws_ofi_nccl.enabled = "true"
+    com.hooks.aws_ofi_nccl.variant = "cuda12"
+
+    [env]
+    FI_CXI_DISABLE_HOST_REGISTER = "1"
+    FI_MR_CACHE_MONITOR = "userfaultfd"
+    NCCL_DEBUG = "INFO"
+    ```
+
+2. Now we're ready to run the container with the command:
+
+    ```bash
+    srun -A <account> --environment=pytorch-25.01-py3 --pty bash
+    ```
+
+    The `--environment` option will look for a valid EDF file (the one we just created), and the loads the specifications of the container (like the image we want to use) from that file, plus the additional options.
+
+    You can also specify a different working directory with `--container-workdir=<your-dir>`. You can set it to `$PWD` if you want to be in the current working directory when the container starts.
+
+</Steps>
+
+## Test the container
+Once our allocation is granted, we'll be *inside* our running container.
+Since we created a PyTorch Docker image, we can test that all went fine with a Python script that tries to import the `torch` package and runs some hardware checks:
+
+```python
+import torch
+
+def check_pytorch_cuda():
+    print("Checking PyTorch Installation...")
+
+    # Check if PyTorch is installed
+    try:
+        print(f"PyTorch Version: {torch.__version__}")
+    except AttributeError:
+        print("PyTorch is not installed correctly.")
+        return
+
+    # Check if CUDA is available
+    if torch.cuda.is_available():
+        print("CUDA is available!")
+        print(f"CUDA Version: {torch.version.cuda}")
+        print(f"cuDNN Version: {torch.backends.cudnn.version()}")
+        print(f"Number of CUDA Devices: {torch.cuda.device_count()}")
+        for i in range(torch.cuda.device_count()):
+            print(f"Device {i}: {torch.cuda.get_device_name(i)}")
+    else:
+        print("CUDA is NOT available. Check your installation.")
+
+if __name__ == "__main__":
+    check_pytorch_cuda()
+```
+
+If all went fine, we should see the following output (which is specific of the machine where the container is run):
+```
+Checking PyTorch Installation...
+PyTorch Version: 2.6.0a0+ecf3bae40a.nv25.01
+CUDA is available!
+CUDA Version: 12.8
+cuDNN Version: 90700
+Number of CUDA Devices: 4
+Device 0: NVIDIA GH200 120GB
+Device 1: NVIDIA GH200 120GB
+Device 2: NVIDIA GH200 120GB
+Device 3: NVIDIA GH200 120GB
+```
+
+## Additional resources
+- [Building container images](https://confluence.cscs.ch/spaces/KB/pages/868834153/Building+container+images+on+Alps)

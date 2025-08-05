@@ -1,0 +1,44 @@
+---
+title: How to Log In
+sidebar:
+  order: 2
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## Two Interfaces
+**Links to openBIS of your lab [here](/documentation/openbis/pages_for_labs/).** 
+
+- ELN User Interface (**ELN UI**): Main interface for managing your data
+- Admin (User) Interface (**Admin UI**): Interface for set up of meta data structure (only for Admins)
+
+## Two login options
+
+- **As an User** with your Empa credentials via single sign on (works via [SWTICHaai](https://www.switch.ch/aai/))
+- **As an Instance Admin** with the credentials you get after sending the support form for new Instance Admins [here](/documentation/openbis/getting-started/support/#instance-admins) 
+
+<Aside type="caution" title="Warning">
+    You can login to the Admin UI with as User and Instance Admin, but as User you will NOT have permission to save any changes in the Admin UI.
+</Aside>  
+
+## Login instructions for ELN UI (analog for Admin UI)
+### User login
+
+To login via [SWTICHaai](https://www.switch.ch/aai/) you open the webpage of your [instance](/documentation/openbis/pages_for_labs/) and you need to follow the steps:
+
+* Choose `SWTICHaai Single Sign on Login Service` and click `Login` (left on the picture below)
+* You will be forwarded to a page, where you need to choose Empa (right on on picture below)
+* For the first time you need to enter your Empa credentials, after that you will be always logged in.
+
+![Display of the login window for SWITCHaai single sign on](src/assets/openBIS/Bild/SwitchAAI_login.png)
+
+### Instance Admin login
+
+The admin and the user account are handled separately. You open the page from your [instance](/documentation/openbis/pages_for_labs/) and follow this steps:
+
+* Choose `Default Login Services` and click `Login`
+* Login with the credentials you received through our services
+* After your first time log in you need to change the password
+* Change Password in the ELN in: Utilities > User Profile > More (right on the picture below)
+
+![Display of the login window for Admin login](src/assets/openBIS/Bild/Admin_login.png)

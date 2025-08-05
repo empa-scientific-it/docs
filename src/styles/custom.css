@@ -29,24 +29,8 @@
   --sl-color-black: #ffffff;
 }
 
-/* Link style in cards */
-.card a {
-  color: var(--sl-color-white);
-  text-decoration: none;
-
-  &:hover {
-    color: var(--sl-color-text-accent);
-  }
-}
-
+/* Sidebar styling: use normal font weight for sub-items */
 .sidebar-content ul ul .large {
   font-weight: normal;
   font-size: var(--sl-text-sm);
-}
-
-.sl-link-button:where(.astro-xwgiixxa).minimal {
-  background: var(--sl-color-black);
-  border-color: var(--sl-color-text-accent);
-  color: var(--sl-color-text-accent) !important;
-  padding: 15px !important;
 }

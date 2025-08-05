@@ -2,8 +2,8 @@
 title: Tips for Users
 ---
 
-Dependending on the way you are registered to your openBIS, you have [default rights to some openBIS folders](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#default-roles-assigned-in-eln). 
-The instance admin of your openBIS manages your user rights and therefore your rights can diverge from the default. 
+Dependending on the way you are registered to your openBIS, you have [default rights to some openBIS folders](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/user-registration.html#default-roles-assigned-in-eln).
+The instance admin of your openBIS manages your user rights and therefore your rights can diverge from the default.
 Contact your instance admin if you need help with your rights in openBIS or you can contact our openBIS support via [email](mailto:openbis-support@empa.ch).
 
 - Check the ETH documentation on these topics:
@@ -14,14 +14,15 @@ Contact your instance admin if you need help with your rights in openBIS or you 
 
 ## Dive deeper
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { CardGrid } from "@astrojs/starlight/components";
+import CustomCard from "@components/CustomCard.astro";
 
 <CardGrid>
-  <Card
+  <CustomCard
     title="<a href='/documentation/openbis/getting-started/users/experiments'>Tips for Experiments</a>"
     customIcon="lucide:folder-tree"
   />
-  <Card
+  <CustomCard
     title="<a href='/documentation/openbis/getting-started/users/maintenance/'>Tips for Maintenance work</a>"
     customIcon="lucide:cpu"
   />

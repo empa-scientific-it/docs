@@ -6,23 +6,40 @@ export interface Props {
 const { targetPath } = Astro.props;
 ---
 
-<script define:vars={{ targetPath }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    const sidebarLinks = document.querySelectorAll('.sidebar-content a');
+<lab-sidebar-highlighter data-target-path={targetPath}>
+</lab-sidebar-highlighter>
 
-    sidebarLinks.forEach(link => {
-      if (link.href.includes(targetPath)) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page');
+<script>
+  class LabSidebarHighlighter extends HTMLElement {
+    connectedCallback(): void {
+      this.highlightSidebar();
+    }
 
-        // Expand parent sections
-        let parent = link.closest('[data-collapsible]');
-        while (parent) {
-          const button = parent.querySelector('button[aria-expanded="false"]');
-          if (button) button.click();
-          parent = parent.parentElement?.closest('[data-collapsible]');
+    private highlightSidebar(): void {
+      // Read the target path from the data attribute
+      const targetPath: string | undefined = this.dataset.targetPath;
+      if (!targetPath) return;
+
+      const sidebarLinks: NodeListOf<HTMLAnchorElement> =
+        document.querySelectorAll(".sidebar-content a");
+
+      sidebarLinks.forEach((link: HTMLAnchorElement) => {
+        if (link.href.includes(targetPath)) {
+          // Highlight the link
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+
+          // Find and expand all parent <details> elements
+          let parent: HTMLDetailsElement | null = link.closest("details");
+          while (parent) {
+            parent.open = true;
+            parent = parent.parentElement?.closest("details") || null;
+          }
         }
-      }
-    });
-  });
+      });
+    }
+  }
+
+  // Define the custom element
+  customElements.define("lab-sidebar-highlighter", LabSidebarHighlighter);
 </script>

@@ -8,31 +8,47 @@ hero:
     - text: About
       link: /about/
       icon: right-arrow
-      variant: secondary
+      variant: primary
     - text: Support
       link: /support/
       icon: right-arrow
-      variant: primary
+      variant: secondary
     - text: Documentation
       link: /documentation/
       icon: right-arrow
-      variant: minimal
+      variant: secondary
 ---
 
-import { CardGrid } from '@astrojs/starlight/components';
-import CustomCard from '@components/CustomCard.astro';
+import { CardGrid } from "@astrojs/starlight/components";
+import CustomCard from "@components/CustomCard.astro";
 
 <CardGrid stagger>
-	<CustomCard title="<a href='/services/compute/'>Compute</a>" customIcon="lucide:cpu">
-	   We help you with the right compute infrastructure for your research IT needs.
-	</CustomCard>
-	<CustomCard title="<a href='/services/data_science/'>Data Science</a>" customIcon="lucide:chart-scatter">
-	   We promote the use of advanced data analytics and AI to get the most out of your data.
-	</CustomCard>
-	<CustomCard title="<a href='/services/research-data-management/'>Research Data Management</a>" customIcon="lucide:folder-tree">
-	   We provide good data management practices and provide support in data organization.
-	</CustomCard>
-	<CustomCard title="<a href='/services/software-engineering/'>Software Engineering</a>" customIcon="lucide:git-merge">
-	   We promote good software development practices, offer support in code optimization, management, and deployment.
-	</CustomCard>
+  <CustomCard
+    title="<a href='/services/compute/'>Compute</a>"
+    customIcon="lucide:cpu"
+  >
+    We help you with the right compute infrastructure for your research IT
+    needs.
+  </CustomCard>
+  <CustomCard
+    title="<a href='/services/data_science/'>Data Science</a>"
+    customIcon="lucide:chart-scatter"
+  >
+    We promote the use of advanced data analytics and AI to get the most out of
+    your data.
+  </CustomCard>
+  <CustomCard
+    title="<a href='/services/research-data-management/'>Research Data Management</a>"
+    customIcon="lucide:folder-tree"
+  >
+    We provide good data management practices and provide support in data
+    organization.
+  </CustomCard>
+  <CustomCard
+    title="<a href='/services/software-engineering/'>Software Engineering</a>"
+    customIcon="lucide:git-merge"
+  >
+    We promote good software development practices, offer support in code
+    optimization, management, and deployment.
+  </CustomCard>
 </CardGrid>

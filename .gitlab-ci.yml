@@ -31,14 +31,16 @@ link-check:
   image: lycheeverse/lychee:v0.15.1
   script:
     - echo "Checking links in built site..."
-    - lychee --no-progress --format markdown --output ./lychee-report.md ./dist/ || true
+    - lychee --no-progress --format markdown --output lychee-report.md ./dist/ || LINK_CHECK_FAILED=true
     - |
-      if [ -f ./lychee-report.md ]; then
+      if [ -f lychee-report.md ]; then
         echo "Link check report generated:"
-        cat ./lychee-report.md
+        cat lychee-report.md
       else
         echo "No link check report generated"
       fi
+      # Don't fail the job even if links are broken
+      exit 0
   artifacts:
     paths:
       - lychee-report.md
@@ -53,6 +55,7 @@ pages:
   stage: deploy
   image: alpine:latest
   script:
+    - rm -rf public
     - mkdir public
     - cp -r dist/* public/
     - echo "Deployed to GitLab Pages"

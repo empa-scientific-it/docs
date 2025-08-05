@@ -1,0 +1,45 @@
+---
+export interface Props {
+  targetPath: string;
+}
+
+const { targetPath } = Astro.props;
+---
+
+<lab-sidebar-highlighter data-target-path={targetPath}>
+</lab-sidebar-highlighter>
+
+<script>
+  class LabSidebarHighlighter extends HTMLElement {
+    connectedCallback(): void {
+      this.highlightSidebar();
+    }
+
+    private highlightSidebar(): void {
+      // Read the target path from the data attribute
+      const targetPath: string | undefined = this.dataset.targetPath;
+      if (!targetPath) return;
+
+      const sidebarLinks: NodeListOf<HTMLAnchorElement> =
+        document.querySelectorAll(".sidebar-content a");
+
+      sidebarLinks.forEach((link: HTMLAnchorElement) => {
+        if (link.href.includes(targetPath)) {
+          // Highlight the link
+          link.classList.add("active");
+          link.setAttribute("aria-current", "page");
+
+          // Find and expand all parent <details> elements
+          let parent: HTMLDetailsElement | null = link.closest("details");
+          while (parent) {
+            parent.open = true;
+            parent = parent.parentElement?.closest("details") || null;
+          }
+        }
+      });
+    }
+  }
+
+  // Define the custom element
+  customElements.define("lab-sidebar-highlighter", LabSidebarHighlighter);
+</script>

@@ -1,0 +1,68 @@
+---
+title: From Excel sheet to openBIS
+---
+
+## How it might look like in Excel
+
+A typical series of Experiments might look in Excel like in the picture below.
+
+![How a List of Experiments might look like in an table format](src/assets/openBIS/Bild/ListOfExperiments.png)
+
+This form of registering experiments has several pros and cons:
+
+**Advantages:**
+
+* Everyone knows a little bit of Office-Software and can write anything in no time
+* Lists can easily be expanded with more information
+* Calculations, plots, table functions can be directly used in the program
+
+**Disadvantages:**
+
+* Information on changes is not fully retraceable
+* The single experiments are only linked to other files by name encoding that you choose
+* Very often only one person can work at a file at once
+* Information can easily be changed or deleted without notice
+
+## How to translate from Excel into openBIS
+
+Translating from a table format to an openBIS format requires a little more work up front, but in the end it looks almost the same, but has additional features, an typical office table doesn't offer.
+
+The following picture shows how the table would look in openBIS ([V. 20.10.5](https://unlimited.ethz.ch/display/openbis/Production+Releases)).
+![How a List of Experiments might look like in an openIS format](src/assets/openBIS/Bild/ListOfExperiments-openBIS.png)
+
+Following you can find the files for the [Masterdata import](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/masterdata-exports-and-imports.html#masterdata-import) and [XLS Batch Register](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-a-collection):
+
+
+* Download the file for the Masterdata import of the object type.
+  <a href="/assets/openBIS/MasterData_OBJECT-TYPE.xlsx" download="MasterData_OBJECT-TYPE.xlsx">
+    📄 MasterData_OBJECT-TYPE.xlsx
+  </a>
+
+* Download the file for the XLS Batch Register of this experiments.
+  <a href="/assets/openBIS/SAMPLE-COLLECTION-REGISTRATION-GELATION_EXPERIMENTS-STORAGE_POSITION-template.xlsx" download="SAMPLE-COLLECTION-REGISTRATION-GELATION_EXPERIMENTS-STORAGE_POSITION-template.xlsx">
+    📄 SAMPLE-COLLECTION-REGISTRATION-GELATION_EXPERIMENTS-STORAGE_POSITION-template.xlsx
+  </a>
+
+
+What you ned to know about the [openBIS table](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#tables) in this example: 
+
+* To register the experiments a [new Entity type](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html) was created. This experiments shown here are of the Entity type Object.
+* Using the [Masterdata import](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html#register-masterdata-via-excel), the Object Type created in this example is in the file for the XLS Batch Register file to replicate.
+* The columns called Code, Parents, Children, Registrator, Registration Date, Modifier, Modification Date and Type are automatically created.
+* An openBIS-Object can have unlimited [Parent-Child relations](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#add-parents-and-children-to-experimental-steps) to other Objects.
+* Relations between objects can be displayed using the [Hierarchy Graph](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#visualise-relationships).
+* Each entity in openBIS has an [History](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#entity-history), all the changes are registered with timestamp and author.
+
+## The benefits of linking experiments with analysis
+
+In my opinion, one of the biggest advantages of the objects in openBIS is the possibility to [link](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#add-parents-and-children-to-experimental-steps) entries with each other. Thus, notes about experiments, entries about samples or analyses can be linked directly, without having to note somewhere what can be found where, or even having to create an additional list with directories especially for this purpose.
+
+If the example from above is considered, a section with information on analyses was created in the Excel table, where it was noted which analyses belong to which experiments. The table is, however, limited by the given format - in this example by the limited space, so that the here presented use case remains simple. When working with [openBIS tables](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#tables), an object is generated for an analysis step and the raw data belonging to that step can be [uploaded](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-web-ui) in the browser directly. 
+
+In the following picture an [Hierarchy Graph](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#visualise-relationships) from one experiment is shown. Next to it is the object type Density Monolith displayed to give an example of containing information within an example. The object type shown here is a bit more special. It is designed in such a way that the measured values around the envelope densities to measure are entered directly during the measurement in the object type designed for it. After saving, the necessary calculations are performed directly, but how this is done will be described in the next section.
+
+I would like to highlight, the displayed object called Density Monolith, contains as well the information about the [Parents](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#adding-a-parent), in this case about the chemical composition of the experiments.
+
+Below the Hierarchy Graph the object type Gelation Experiment from that experiment is shown. As can be seen from the screenshot, the analysis of the experiment; Density, SEM, FTIR are listed within the experiment as children. The [sorting of the table](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/additional-functionalities.html#sorting) allows to display the relevant results in a useful way. [Uploading via browser](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/data-upload.html#data-upload-via-web-ui) the FTIR graph, or SEM picture as .png and defining it as 'ELN Preview' in the 'data set type' will give a preview in the table as displayed in the screenshot below. The rest of the analysis can be commented in a document (obejct type [Entry](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#register-experimental-steps)) and the raw data can be attached.
+
+![Display of an Hierarchy Graph of an experiment, an analysis and the experiment with focus of the children.](src/assets/openBIS/Bild/Hierarchy-Graph_Object.png)

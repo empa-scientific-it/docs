@@ -1,0 +1,34 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { LinkButton } from "@astrojs/starlight/components";
+import { getCollection, render } from "astro:content";
+import SidebarHighlighter from "@components/SidebarHighlighter.astro";
+
+export async function getStaticPaths() {
+  const labs = await getCollection("labs");
+  return labs.map((lab) => ({
+    params: { lab: lab.data.labId },
+    props: { lab },
+  }));
+}
+
+const { lab } = Astro.props;
+const { Content } = await render(lab);
+const targetPath = "/documentation/openbis/labs";
+---
+
+<StarlightPage frontmatter={{ title: lab.data.title, tableOfContents: false }}>
+  <Content />
+  <div>
+    <LinkButton
+      href="/documentation/openbis/labs"
+      variant="secondary"
+      icon="left-arrow"
+      iconPlacement="start"
+    >
+      Back to Labs
+    </LinkButton>
+  </div>
+</StarlightPage>
+
+<SidebarHighlighter targetPath={targetPath} />

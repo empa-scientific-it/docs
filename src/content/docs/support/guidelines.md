@@ -1,5 +1,5 @@
 ---
-title: Guidelines For Support
+title: Guidelines
 ---
 
 In order to provide a fast and efficient service, we provide a few suggestions on how to frame your support request.

@@ -1,0 +1,55 @@
+---
+interface CrumbsProps {
+  label: string,
+  link?: string,
+}
+
+export interface Props {
+  crumbs?: CrumbsProps[];
+}
+
+const { crumbs } = Astro.props;
+---
+
+{
+  <div class="custom-breadcrumbs">
+    {crumbs?.map((crumb, index) => (
+      <div class="custom-breadcrumb">
+        {index > 0 && <span>&gt;</span>}
+        {crumb.link ? (
+          <a href={crumb.link}>{crumb.label}</a>
+        ) : (
+          <span class="no-link">{crumb.label}</span>
+        )}
+      </div>
+    ))}
+  </div>
+}
+
+<style>
+  .custom-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .custom-breadcrumbs a {
+    text-decoration: none;
+  }
+
+  .custom-breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+
+  .custom-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0 !important;
+  }
+
+  .custom-breadcrumb .no-link {
+    color: var(--sl-color-text-accent);
+  }
+</style>

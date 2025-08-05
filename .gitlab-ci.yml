@@ -1,25 +1,101 @@
 stages:
   - build
+  - test
   - deploy
 
-build-astro:
+variables:
+  NODE_VERSION: "20"
+
+# Cache node_modules for faster builds
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+# Build the Astro site
+build:
   stage: build
-  image: node:20
+  image: node:${NODE_VERSION}
   script:
     - npm ci
     - npm run build
+    - echo "Build completed successfully"
   artifacts:
     paths:
       - dist/
-    expire_in: 1h
+    expire_in: 1 day
 
-deploy:
-  stage: deploy
-  only:
-    - main
-  image: alpine
-  before_script:
-    - apk add openssh-client rsync
-    - chmod 400 $SSH_PRIVATE_KEY_FILE
+# Link checking
+link-check:
+  stage: test
+  image: lycheeverse/lychee:latest
   script:
-    - rsync -avh --delete -e "ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY_FILE" dist/ scientificit@du-httpd1:/var/www/scientificit.empa.ch/public/
+    - echo "Checking links in built site..."
+    - lychee --output ./lychee-report.md ./dist/ || true
+    - |
+      if [ -f ./lychee-report.md ]; then
+        echo "Link check report generated:"
+        cat ./lychee-report.md
+      fi
+  artifacts:
+    paths:
+      - lychee-report.md
+    expire_in: 1 week
+    when: always
+  dependencies:
+    - build
+  allow_failure: true  # Don't block deployment for broken links
+
+# Deploy to GitLab Pages (for testing the pipeline)
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r dist/* public/
+    - echo "Deployed to GitLab Pages"
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  dependencies:
+    - build
+
+# Deploy to test subdomain (enable when ready)
+# deploy-test:
+#   stage: deploy
+#   image: alpine:latest
+#   before_script:
+#     - apk add --no-cache openssh-client rsync
+#     - chmod 400 $SSH_PRIVATE_KEY_FILE
+#   script:
+#     - rsync -avh --delete -e "ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY_FILE" 
+#       dist/ scientificit@du-httpd1:/var/www/test.scientificit.empa.ch/public/
+#     - echo "Deployed to test subdomain"
+#   dependencies:
+#     - build
+#   rules:
+#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#   environment:
+#     name: test
+#     url: https://test.scientificit.empa.ch
+
+# Deploy to production (enable when ready)
+# deploy-production:
+#   stage: deploy
+#   image: alpine:latest
+#   before_script:
+#     - apk add --no-cache openssh-client rsync
+#     - chmod 400 $SSH_PRIVATE_KEY_FILE
+#   script:
+#     - rsync -avh --delete -e "ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY_FILE" 
+#       dist/ scientificit@du-httpd1:/var/www/scientificit.empa.ch/public/
+#     - echo "Deployed to production"
+#   dependencies:
+#     - build
+#   rules:
+#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+#   environment:
+#     name: production
+#     url: https://scientificit.empa.ch
+#   when: manual  # Require manual approval for production

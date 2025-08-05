@@ -1,0 +1,40 @@
+# Lychee link checker configuration
+# See: https://github.com/lycheeverse/lychee
+
+# Maximum number of redirects to follow
+max_redirects = 10
+
+# User agent string to use for requests
+user_agent = "lychee/link-checker"
+
+# Timeout for network requests (in seconds)
+timeout = 30
+
+# Maximum number of concurrent link checks
+max_concurrency = 10
+
+# Accept invalid SSL certificates (use with caution)
+insecure = false
+
+# Check links inside HTML elements only
+# Excludes checking URLs in comments
+include_verbatim = false
+
+# Output format options: compact, detailed, json
+output = "detailed"
+
+# Exclude patterns (also reads from .lycheeignore)
+exclude = [
+    "mailto:*"
+]
+
+# Include patterns - only check these if specified
+# include = ["https://*"]
+
+# Base URL for relative links
+# base = "https://scientificit.empa.ch"
+
+# Custom headers for requests
+# [[headers]]
+# pattern = "https://example.com/*"
+# headers = { "Authorization" = "Bearer token" }

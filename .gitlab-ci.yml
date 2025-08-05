@@ -28,14 +28,16 @@ build:
 # Link checking
 link-check:
   stage: test
-  image: lycheeverse/lychee:latest
+  image: lycheeverse/lychee:v0.15.1
   script:
     - echo "Checking links in built site..."
-    - lychee --output ./lychee-report.md ./dist/ || true
+    - lychee --no-progress --format markdown --output ./lychee-report.md ./dist/ || true
     - |
       if [ -f ./lychee-report.md ]; then
         echo "Link check report generated:"
         cat ./lychee-report.md
+      else
+        echo "No link check report generated"
       fi
   artifacts:
     paths:
@@ -49,6 +51,7 @@ link-check:
 # Deploy to GitLab Pages (for testing the pipeline)
 pages:
   stage: deploy
+  image: alpine:latest
   script:
     - mkdir public
     - cp -r dist/* public/
@@ -56,8 +59,6 @@ pages:
   artifacts:
     paths:
       - public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   dependencies:
     - build
 

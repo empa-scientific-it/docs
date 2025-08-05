@@ -14,9 +14,9 @@ export async function getStaticPaths() {
 
 const { lab } = Astro.props;
 const { Content } = await render(lab);
+const targetPath = "/documentation/openbis/labs";
 ---
 
-<SidebarHighlighter targetPath="/documentation/openbis/labs" />
 <StarlightPage frontmatter={{ title: lab.data.title, tableOfContents: false }}>
   <Content />
   <div>
@@ -30,3 +30,5 @@ const { Content } = await render(lab);
     </LinkButton>
   </div>
 </StarlightPage>
+
+<SidebarHighlighter targetPath={targetPath} />

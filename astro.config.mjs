@@ -13,10 +13,11 @@ export default defineConfig({
     mermaid(),
     starlight({
       title: "Empa Scientific IT",
+      description: "Scientific IT services at Empa",
       customCss: ["./src/styles/custom.css"],
       social: {
-        github: "https://github.com/empa-scientific-it/docs",
-        gitlab: "https://gitlab.empa.ch/empa-scientific-it/docs",
+        github: "https://github.com/empa-scientific-it",
+        gitlab: "https://gitlab.empa.ch/empa-scientific-it",
       },
       pagination: false,
       sidebar: [

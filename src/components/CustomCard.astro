@@ -72,24 +72,6 @@ const useStarlightCard = icon && !customIcon;
     --sl-card-bg: var(--sl-color-blue-low);
   }
 
-  .card .icon {
-    border: 1px solid var(--sl-card-border);
-    background-color: var(--sl-card-bg);
-    padding: 5px;
-    border-radius: 0.25rem;
-    min-width: 35px;
-    height: 35px;
-  }
-
-  .card .body {
-    margin: 0;
-    font-size: clamp(
-      var(--sl-text-sm),
-      calc(0.5rem + 1vw),
-      var(--sl-text-body)
-    );
-  }
-
   .title {
     font-weight: 600;
     font-size: var(--sl-text-h4);
@@ -109,5 +91,23 @@ const useStarlightCard = icon && !customIcon;
 
   .title :global(a:hover) {
     color: var(--link-color-hover);
+  }
+
+  .card .icon {
+    border: 1px solid var(--sl-card-border);
+    background-color: var(--sl-card-bg);
+    padding: 5px;
+    border-radius: 0.25rem;
+    min-width: 35px;
+    height: 35px;
+  }
+
+  .card .body {
+    margin: 0;
+    font-size: clamp(
+      var(--sl-text-sm),
+      calc(0.5rem + 1vw),
+      var(--sl-text-body)
+    );
   }
 </style>

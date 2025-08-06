@@ -1,0 +1,48 @@
+---
+title: Tips for Maintenance work
+sidebar:
+  hidden: true
+---
+
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/getting-started/users" />
+
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'Getting Started', link: '/documentation/openbis/getting-started' },
+    { label: 'Tips for Users', link: '/documentation/openbis/getting-started/users' },
+    { label: 'Tips for Maintenance work', link: '/documentation/openbis/getting-started/users/maintenance' },
+  ]}
+/>
+
+As a user working in maintenance, you will be most likely working with the inventory section and maybe even the stock section.
+
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="note">
+  This section is still under construction.
+</Aside>
+
+## Managing Devices, Chemicals, and more
+
+Some ETH documentation about the set up of the openBIS [inventory](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html) with examples from life sciences.
+
+## Working with batch register and batch update
+
+Instructions from ETH about how to upload samples or chemicals from an Excel table to an openBIS collection using the [batch registration](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/inventory-of-materials-and-methods.html#batch-register-entries-in-a-collection).
+
+## Connections using Parent-Child Relations
+
+Explanations about the [parent child relationships in openBIS](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/lab-notebook.html#add-parents-and-children-to-experimental-steps) from ETH.
+
+## History of Objects to follow changes
+
+openBIS is recording changes and deletion of objects.
+Check the documentation [here](https://openbis.readthedocs.io/en/latest/user-documentation/general-admin-users/admins-documentation/history-overview.html#).
+
+## Using Storage Section
+
+Check the ETH documentation about the [management of sample storage in openBIS](https://openbis.readthedocs.io/en/latest/user-documentation/general-users/managing-storage-of-samples.html#).

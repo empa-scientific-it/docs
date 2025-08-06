@@ -1,0 +1,90 @@
+---
+title: Process of feature request
+sidebar:
+  hidden: true
+---
+
+import CustomBreadcrumbs from '@components/CustomBreadcrumbs.astro';
+import SidebarHighlighter from '@components/SidebarHighlighter.astro';
+
+<SidebarHighlighter targetPath="/documentation/openbis/empa-specific/for_admins" />
+
+<CustomBreadcrumbs
+  crumbs={[
+    { label: 'openBIS', link: '/documentation/openbis' },
+    { label: 'Empa-specific', link: '/documentation/openbis/empa-specific' },
+    { label: 'For Instance Admins', link: '/documentation/openbis/empa-specific/for_admins' },
+    { label: 'Process of feature request', link: '/documentation/openbis/empa-specific/for_admins/feature_request' },
+  ]}
+/>
+
+## Motivation
+
+Here we briefly describe how request for developments in openBIS are handled by Empa Scientific IT (SIT).
+We introduced this process to plan our limited resources while offering the best possible user experience for openBIS users at Empa.
+
+For more information, see the official process document attached here which counts as the official description in case of ambiguities.
+
+As SIT adopts agile development methods, we expect you to be involved in the development process, at the least during the planning process and during the development phase for testing of the features.
+Do not worry, this does not need that you need to work on the code, but we need your collaboration to better understand your needs and turn them into well-defined functionalities to implement.
+Who is this document for.
+
+If you are an **instance admin**:
+
+You are the main audience of this process.
+In case of request for development in openBIS from users, you will act as the main point of contact between them and the scientific IT group.
+If you are an openBIS user
+
+If you wish to request a new feature or a further development of openBIS, you should first contact your instance admin.
+They will take care of collecting your requirements and opening the request with all relevant information.
+The request should be submitted through our [support form for new feature](/documentation/openbis/getting-started/support/).
+
+## Scope
+
+A request for development comprises the following:
+
+- Development of new features or modification of existing features in the openBIS electronic lab notebook (ELN) or in the laboratory inventory management system (LIMS) interface.
+- Development of new features of modification of existing features in the openBIS application server (AS) or in the Data Store Server (DSS).
+- Development of new application programming interfaces (API) or modification of existing APIs interacting with the openBIS DSS and AS.
+- Development of interactive web applications using the openBIS API to interact with openBIS instances (webapps).
+- Development and modification of openBIS DSS and AS plugins  (core plugins, maintenance plugin and dropbox DSS ingestion plugins)
+- Development of native/desktop and mobile application using  the openBIS DSS or AS API
+
+## Process
+
+### Request format
+
+A request for development **MUST** be opened by instance admins using our requirement form.
+Please do not forget to enter all the information we request.
+These are very important for us to prioritize requests.
+
+A request for development **MUST** contain the following information:
+
+- A concise description of the features. The request must be clearly formulated and limited in scope. Very general requests of the form "improve the ELN interface" will be rejected because too vague. A better description would be "change the display of collections in the ELN, allowing to define custom icons for different openBIS object types"
+- Sketches and description of user interactions are expected in the case of user interfaces (UI). We suggest the use of Miro boards for this.
+- An estimate of how many users would benefit from the feature
+- A list of persons  from other laboratories or groups that would also benefit from this feature and can vouch for it  (*sponsors*)
+
+### Request evaluation
+
+The collected requests undergo a preliminary review during a monthly meeting of the scientific IT team.
+The requests are scored according to these factors:
+
+- **Impact**: How many users and how many labs benefit from the feature?
+- **Reusability**: Does the feature lead to permanent improvement in the openBIS user experience or it simply covers a very specific use case? Can the feature be generalized to other labs and use cases?
+- **Resources**: Does SIT have resources and knowledge to implement the request?
+- **Strategic Importance**: Does the request align with the strategy of SIT and Empa in general? Is a similar feature expected in the upcoming openBIS release?
+- **Alternatives**: could this problem be solved with existing means? Are there tools available that cover the use case?
+
+### Development process
+
+If the review is **successful**:
+
+1. we will contact the instance admin and the sponsors to better define the requirements and the scope of the feature
+2. we will define and plan the development in detail
+3. we will inform you of the time schedule
+4. once the development is finished, we will contact you for testing the feature
+5. If minor adjustments are needed, we redefine requirements, continue development and ask you to test again
+
+If the request is **rejected**, we will inform you of the reason for rejection.
+In this case you can open a new  request after applying the suggested changes.

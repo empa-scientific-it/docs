@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import icon from "astro-icon";
-import path from "path";
+import mermaid from 'astro-mermaid';
 
 // Check out: https://astro.build/config
 // And Starlight official docs: https://starlight.astro.build
@@ -10,6 +10,7 @@ export default defineConfig({
   site: "https://empa-scientific-it.netlify.app",
   integrations: [
     icon(),
+    mermaid(),
     starlight({
       title: "Empa Scientific IT",
       customCss: ["./src/styles/custom.css"],
@@ -23,29 +24,15 @@ export default defineConfig({
         { label: "About", link: "/about" },
         {
           label: "Support",
-          items: [
-            { label: "How to get support", link: "/support" },
-            { label: "Guidelines", link: "/support/guidelines" },
-          ],
+          autogenerate: { directory: "/support" },
         },
         {
-          label: "Compute",
-          items: [
-            {
-              label: "Access compute resources",
-              link: "/compute",
-            },
-            { label: "CSCS", autogenerate: { directory: "compute/CSCS" } },
-          ],
-        },
-        { label: "Data Science", link: "/data_science" },
-        {
-          label: "Research Data Management",
-          autogenerate: { directory: "rdm" },
+          label: "Services",
+          autogenerate: { directory: "/services", collapsed: true },
         },
         {
-          label: "Software Engineering",
-          autogenerate: { directory: "software_engineering" },
+          label: "Documentation",
+          autogenerate: { directory: "/documentation", collapsed: true },
         },
       ],
     }),

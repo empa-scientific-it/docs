@@ -28,7 +28,7 @@ build:
 # Link checking
 link-check:
   stage: test
-  image: lycheeverse/lychee:v0.15.1
+  image: lycheeverse/lychee:latest
   script:
     - echo "Checking links in built site..."
     - lychee --no-progress --format markdown --output lychee-report.md ./dist/ || LINK_CHECK_FAILED=true
@@ -51,19 +51,19 @@ link-check:
   allow_failure: true  # Don't block deployment for broken links
 
 # Deploy to GitLab Pages (for testing the pipeline)
-pages:
-  stage: deploy
-  image: alpine:latest
-  script:
-    - rm -rf public
-    - mkdir public
-    - cp -r dist/* public/
-    - echo "Deployed to GitLab Pages"
-  artifacts:
-    paths:
-      - public
-  dependencies:
-    - build
+# pages:
+#   stage: deploy
+#   image: alpine:latest
+#   script:
+#     - rm -rf public
+#     - mkdir public
+#     - cp -r dist/* public/
+#     - echo "Deployed to GitLab Pages"
+#   artifacts:
+#     paths:
+#       - public
+#   dependencies:
+#     - build
 
 # Deploy to test subdomain (enable when ready)
 # deploy-test:

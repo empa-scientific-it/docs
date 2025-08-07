@@ -1,0 +1,17 @@
+# Ignore localhost and local development URLs
+http://localhost*
+https://localhost*
+http://127.0.0.1*
+
+# Ignore common placeholder URLs
+https://example.com*
+http://example.com*
+
+# Ignore email links (they require special handling)
+mailto:*
+
+# Ignore internal URLs that might not be accessible during CI
+https://scientificit.empa.ch/preview/*
+
+# Ignore URLs that require authentication
+# Add any internal Empa URLs that require login here
